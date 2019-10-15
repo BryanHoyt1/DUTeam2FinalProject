@@ -5,10 +5,31 @@
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column">
 
-    
-          <div fxLayout="row">
-                  <h3>[SearchBar]</h3>
-          <div>
+        <div style="padding: 30px;">
+          <h5>Sort</h5>
+            <form class="form-inline">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Most Recent</a>
+                  <a class="dropdown-item" href="#">First Name</a>
+                  <a class="dropdown-item" href="#">Last Name</a>
+                  <a class="dropdown-item" href="#">Employee Number</a>
+                  <a class="dropdown-item" href="#">Status</a>
+
+                </div>
+              </div>
+              <!-- <select class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here..">
+                  <option value="1">Most Recent</option>
+                  <option value="2">First Name</option>
+                  <option value="3">Last Name</option>
+                  <option value="4">Employee Number</option>
+                  <option value="5">Status</option>
+                </select> -->
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
             <table class="table">
               <ng-container>
                 <thead>
@@ -38,7 +59,5 @@
             </div>
         
         </div>
+    </div>
       </div>
-   
-</div>
-</div>
