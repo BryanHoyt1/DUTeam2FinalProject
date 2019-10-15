@@ -21,13 +21,31 @@
 
                 </div>
               </div>
-              <!-- <select class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here..">
-                  <option value="1">Most Recent</option>
-                  <option value="2">First Name</option>
-                  <option value="3">Last Name</option>
-                  <option value="4">Employee Number</option>
-                  <option value="5">Status</option>
-                </select> -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Detail Page</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <h4>[INSERT TOPICAL INFO HERE]</h4>
+                        <p>Joe Smith joe.smith@gmail.com 314-867-5309</p>
+                        <p>8/8 Documents complete</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             </form>
             <table class="table">
@@ -45,13 +63,16 @@
                 </thead>
                 <tbody>
                   <tr>
-                      <th scope="row">12345</th> 
-                      <td>Joe </td>
-                      <td>Smith </td>
-                      <td>joe.smith@gmail.com </td>
-                      <td>314-867-5309 </td>
-                      <td>01-01-1901 </td>
-                      <td>COMPLETE </td>
+                    <th scope="row">12345</th> 
+                    <td>Joe </td>
+                    <td>Smith </td>
+                    <td>joe.smith@gmail.com </td>
+                    <td>314-867-5309 </td>
+                    <td>01-01-1901 </td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    COMPLETE
+                    </button> </td>
+
                   </tr>
                 </tbody>
                 </ng-container>
