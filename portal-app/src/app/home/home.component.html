@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
 <div class="home" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column">
@@ -6,15 +9,31 @@
           <div fxLayout="row">
                   <h3>[SearchBar]</h3>
           <div>
-            <table>
+            <table class="table">
               <ng-container>
-                <tr>
-                    <th> Employee Number</th> <th> First Name</th><th> Last Name</th><th> Email</th><th> Phone</th><th> Date of Birth</th><th> Status</th>
-                </tr>
-                <tr>
-                    <td>12345</td> <td> Joe </td><td> Smith </td><td> joe.smith@gmail.com </td><td> 314-867-5309 </td><td> 01-01-1901 </td><td> COMPLETE </td>
-                </tr>
-            </ng-container>
+                <thead>
+                  <tr>
+                      <th scope="col">Employee Number</th>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Date of Birth</th>
+                      <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <th scope="row">12345</th> 
+                      <td>Joe </td>
+                      <td>Smith </td>
+                      <td>joe.smith@gmail.com </td>
+                      <td>314-867-5309 </td>
+                      <td>01-01-1901 </td>
+                      <td>COMPLETE </td>
+                  </tr>
+                </tbody>
+                </ng-container>
             </table>
             </div>
         
