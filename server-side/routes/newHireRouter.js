@@ -1,3 +1,3 @@
 const express = require('express');
 const newHireRouter = express.Router();
-const NewHire = require('../models/NewHire);
+const NewHire = require('../models/NewHire');
