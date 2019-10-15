@@ -5,7 +5,15 @@
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column">
 
-        <div style="padding: 30px;">
+        <div style="padding: 30px;">    
+          
+          <div fxFlex class="home-login" [hidden]="!!(loggedInUser$ | async)">
+      
+            <form #userLoginForm="ngForm" fxLayout="column" (ngSubmit)="login()">
+      
+            </div>
+
+
           <h5>Sort</h5>
             <form class="form-inline">
               <div class="dropdown">
