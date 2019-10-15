@@ -1,0 +1,30 @@
+// @import './styles/_colors';
+// @import './styles/angular-material-override';
+// @import '~@angular/material/theming';
+// @include mat-core();
+
+// $du-app-primary: mat-palette($mat-green);
+// $du-app-accent : mat-palette($mat-blue-grey, A200, A100, A400);
+// $du-app-warn : mat-palette($mat-red);
+// $du-app-theme: mat-light-theme($du-app-primary, $du-app-accent, $du-app-warn);
+
+// @include angular-material-theme($du-app-theme);
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.radio-label {
+  font-size: 0.785em;
+  margin-bottom: 0.5em;
+  color: grey;
+}
+
+.mat-snack-bar-container {
+  background-color: white;
+}
+
+.fa {
+  padding: 0 4px;
+}
