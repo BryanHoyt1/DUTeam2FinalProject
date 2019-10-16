@@ -1,5 +1,6 @@
 //const newHireRouter = require('../routes/newHireRouter');
 const axios = require('axios');
+const newEmp = require('../models/newHire');
 
 //const url = 'https://pokeapi.co/api/v2/pokemon';
 
@@ -14,8 +15,12 @@ const getNewHireById = (url, id) => {
     return axios.get(`${url}/${id}`);
 }
 
-const createNewHire = (url, body) => {
-    return axios.post(url, body);
+const createNewHire = (url, newHire) => {
+    return axios.post(url, newHire);
+}
+
+const updateNewHire = (url, id, body) => {
+
 }
 
 module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById,
