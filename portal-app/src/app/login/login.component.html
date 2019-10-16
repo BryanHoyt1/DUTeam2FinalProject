@@ -11,7 +11,7 @@
     <form #userLoginForm="ngForm" (ngSubmit)="login()">
       <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="credentials.username" required placeholder="login">
       <input type="text" id="password" class="fadeIn third" name="password" [(ngModel)]="credentials.password" required placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input onclick="localhost:4200/home" type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
  </div>

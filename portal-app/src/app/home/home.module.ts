@@ -6,6 +6,7 @@ import { MatTableModule, MatInputModule, MatFormFieldModule, MatSelectModule, Ma
 import { HomeComponent } from './home.component';
 import {CdkTableModule} from "@angular/cdk/table";
 import { LoginModule } from '../login/login.module';
+import { HeaderModule } from '../header/header.module';
 
 
 
@@ -21,7 +22,8 @@ import { LoginModule } from '../login/login.module';
     MatSelectModule,
     MatOptionModule,
     MatCheckboxModule,
-    LoginModule
+    LoginModule,
+    HeaderModule
   ],
   exports: [HomeComponent]
 })

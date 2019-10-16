@@ -4,7 +4,7 @@ import { Credentials } from "../shared/credentials";
 import {MatSnackBar} from "@angular/material";
 import {Subscription} from 'rxjs';
 import {AuthService} from '../services/auth.service';
-
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -21,10 +21,12 @@ export class LoginComponent implements OnDestroy, OnInit {
   public credentials: Credentials = new Credentials();
   private userSubscription: Subscription;
   private loginSubscription: Subscription;
+  private readonly router: Router;
 
-  constructor(snackBar: MatSnackBar, authService: AuthService) {
+  constructor(snackBar: MatSnackBar, authService: AuthService, router: Router) {
     this.snackBar = snackBar;
     this.authService = authService;
+    this.router = router;
    }
 
   ngOnInit(): void {
@@ -37,12 +39,14 @@ export class LoginComponent implements OnDestroy, OnInit {
   }
   
   public login(): void {
+    this.router.navigate(["home"]);
     this.loginSubscription = this.authService.login(this.credentials).subscribe(null, (error: string) => {
       this.snackBar.open("Failed to login user!", undefined, {
         duration: 3000,
         verticalPosition: "top"
       });
     });
+
   }
 }
 

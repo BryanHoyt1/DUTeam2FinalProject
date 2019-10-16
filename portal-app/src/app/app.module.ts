@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderModule } from './header/header.module';
 import { HomeModule } from './home/home.module';
 import { AddNewModule } from './add-new/add-new.module';
+import { LoginModule } from './login/login.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AddNewModule } from './add-new/add-new.module';
     HeaderModule,
     HomeModule,
     AddNewModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
