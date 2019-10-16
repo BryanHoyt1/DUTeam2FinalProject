@@ -49,8 +49,47 @@
                   </div>
                 </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-h idden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                            Employee Number:<br>
+                            <input type="text" name="emplnumber"><br>
+                            First name:<br>
+                            <input type="text" name="firstname"><br>
+                            Last name:<br>
+                            <input type="text" name="lastname"><br>
+                            Email:<br>
+                            <input type="email" name="email"><br>
+                            Phone:<br>
+                            <input type="tel" name="phone"><br>
+                            Date of Birth:<br>
+                            <input type="date" name="birthdate"><br>
+                            Status:<br>
+                            <input type="checkbox" name="status">
+                            Complete
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Add New</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              <div class="new-button btn float-right">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
+            </div>
             </form>
             <table class="table">
               <ng-container>
