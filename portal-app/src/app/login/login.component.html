@@ -6,12 +6,12 @@
 <div class="wrapper fadeInDown" [hidden]="loggedInUser">
   <div id="formContent">
     <!-- Tabs Titles -->
-
+    <h1 style="padding:20px">APP NAME Login</h1>
 
     <form #userLoginForm="ngForm" (ngSubmit)="login()">
       <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="credentials.username" required placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="password" [(ngModel)]="credentials.password" required placeholder="password">
-      <input onclick="localhost:4200/home" type="submit" class="fadeIn fourth" value="Log In">
+      <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="credentials.password" required placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
  </div>
