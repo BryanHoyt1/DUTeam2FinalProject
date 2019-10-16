@@ -10,8 +10,13 @@ const getNewHires = (url) => {
 };
 
 const getNewHireById = (url, id) => {
-    console.log('request received by controller');
+    //console.log('request received by controller');
     return axios.get(`${url}/${id}`);
 }
 
-module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById};
+const createNewHire = (url, body) => {
+    return axios.post(url, body);
+}
+
+module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById,
+    createNewHire: createNewHire};
