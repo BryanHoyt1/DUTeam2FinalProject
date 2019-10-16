@@ -8,8 +8,8 @@ class newHire {
     dateOfBirth : Date;
     complete : boolean; */
 
-    constructor(empId, lastName, firstName, email, phone, dateOfBirth, status) {
-        this.empId = empId;
+    constructor(lastName, firstName, email, phone, dateOfBirth, status) {
+        //this.empId = empId;
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;

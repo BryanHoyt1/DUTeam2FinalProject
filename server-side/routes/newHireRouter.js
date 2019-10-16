@@ -35,7 +35,7 @@ newHireRouter.get('/:id', (req, res) => {
 newHireRouter.post('/', (req, res) => {
     
     let newEmp = new newHire();
-    newEmp.empId = req.body.empId;
+    //newEmp.empId = req.body.empId;
     newEmp.lastName = req.body.lastName;
     newEmp.firstName = req.body.firstName;
     newEmp.email = req.body.email;
