@@ -10,33 +10,36 @@ import { Credentials } from '../shared/credentials';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnDestroy, OnInit {
-  private readonly snackBar: MatSnackBar;
-  private readonly authService: AuthService;
+export class HomeComponent {
+  // private readonly snackBar: MatSnackBar;
+  // private readonly authService: AuthService;
 
-  public loggedInUser$: Observable<User>;
+  public loggedInUser: User;
   public credentials: Credentials = new Credentials();
-  private loginSubscription: Subscription;
+  // private loginSubscription: Subscription;
 
-  constructor(snackBar: MatSnackBar, authService: AuthService) {
-    this.snackBar = snackBar;
-    this.authService = authService;
-  }
+  // constructor(snackBar: MatSnackBar, authService: AuthService) {
+  //   this.snackBar = snackBar;
+  //   this.authService = authService;
+  // }
 
-  ngOnInit(): void {
-    this.loggedInUser$ = this.authService.getUser();
-  }
+  // ngOnInit(): void {
+  //   this.loggedInUser$ = this.authService.getUser();
+  // }
 
-  ngOnDestroy(): void {
-    this.loginSubscription && this.loginSubscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.loginSubscription && this.loginSubscription.unsubscribe();
+  // }
 
   public login(): void {
-    this.loginSubscription = this.authService.login(this.credentials).subscribe(null, (error: string) => {
-      this.snackBar.open("Failed to login user!", undefined, {
-        duration: 3000,
-        verticalPosition: "top"
-      });
-    });
+    if (this.credentials.username && this.credentials.password) {
+      const user = new User();
+      user.username = this.credentials.username;
+      this.loggedInUser = user;
+    } else {
+      // this.snackBar.open("Failed to login user!", undefined, {
+      //   duration: 3000,
+      //   verticalPosition: "top"});
+    };
   }
 }

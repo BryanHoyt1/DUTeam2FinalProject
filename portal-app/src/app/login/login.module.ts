@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatFormFieldModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
+import { LoginComponent } from './login.component';
 
 
 
 @NgModule({
-  declarations: [LoginModule],
+  declarations: [LoginComponent],
   imports: [
-    CommonModule,
     FlexLayoutModule,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSnackBarModule,
-
+    MatSnackBarModule
   ],
-  exports: [LoginModule]
+  exports: [LoginComponent]
 })
 export class LoginModule { }

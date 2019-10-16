@@ -3,22 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { AddNewComponent } from './add-new/add-new.component';
+import { AuthService } from './services/auth.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderModule } from './header/header.module';
+import { HomeModule } from './home/home.module';
+import { AddNewModule } from './add-new/add-new.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    AddNewComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
+    HeaderModule,
+    HomeModule,
+    AddNewModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
