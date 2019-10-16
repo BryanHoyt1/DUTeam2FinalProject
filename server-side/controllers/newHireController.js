@@ -1,29 +1,17 @@
-const newHireRouter = require('../routes/newHireRouter');
+//const newHireRouter = require('../routes/newHireRouter');
 const axios = require('axios');
 
 //const url = 'https://pokeapi.co/api/v2/pokemon';
 
 
-const getNewHires = async url => {
-    try {
-        const response = await axios.get(url);
-        const data = response.data;
-        
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
-    
+const getNewHires = (url) => {
+    //console.log('request received by controller')
+    return axios.get(url);
 };
 
-const getNewHireById = async (url, id) => {
-    try {
-        const response = await axios.get(`${url}/${id}`);
-        const data = response.data;
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
+const getNewHireById = (url, id) => {
+    console.log('request received by controller');
+    return axios.get(`${url}/${id}`);
 }
 
-module.exports = getNewHires, getNewHireById;
+module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById};
