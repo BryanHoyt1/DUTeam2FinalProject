@@ -20,11 +20,13 @@ newHireRouter.get('/', (req, res) => {
 
 newHireRouter.get('/:id', (req, res) => {
   console.log('get request received by router');
+    const id = req.params.id;
     newHireController
     //.getNewHireById(url, id)
-    .getNewHireById(url, req.params)
+    .getNewHireById(url, id)
     .then(response => {
       const data = response.data;
+      console.log(data);
       res.json(data);
     })
     .catch(error => console.log(error));
