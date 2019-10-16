@@ -39,13 +39,20 @@ export class LoginComponent implements OnDestroy, OnInit {
   }
   
   public login(): void {
-    this.router.navigate(["home"]);
-    this.loginSubscription = this.authService.login(this.credentials).subscribe(null, (error: string) => {
-      this.snackBar.open("Failed to login user!", undefined, {
-        duration: 3000,
-        verticalPosition: "top"
-      });
-    });
+    if(this.credentials.username && this.credentials.password) {
+          this.router.navigate(["home"]);
+    } else {
+      alert("ERROR: The login credentials are not correct");
+    }
+
+
+
+    // this.loginSubscription = this.authService.login(this.credentials).subscribe(null, (error: string) => {
+    //   this.snackBar.open("Failed to login user!", undefined, {
+    //     duration: 3000,
+    //     verticalPosition: "top"
+    //   });
+    // });
 
   }
 }
