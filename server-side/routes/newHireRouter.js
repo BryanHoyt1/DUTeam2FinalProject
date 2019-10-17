@@ -54,15 +54,17 @@ newHireRouter.post('/', (req, res) => {
 
 newHireRouter.put('/:id', (req, res) => {
     let empUpdate = new NewHire();
+
+    
     empUpdate.lastName = req.body.lastName;
     empUpdate.firstName = req.body.firstName;
     empUpdate.email = req.body.email;
     empUpdate.phone = req.body.phone;
     empUpdate.dateOfBirth = req.body.dateOfBirth;
-    newEmp.status = req.body.status;
+    empUpdate.status = req.body.status;
 
     newHireController
-      .updateNewHire(url, empUpdate)
+      .updateNewHire(url, req.params.id ,empUpdate)
       .then(response => {
         const data = response.data;
         res.json(data);
