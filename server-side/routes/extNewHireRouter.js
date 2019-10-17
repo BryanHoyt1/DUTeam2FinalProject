@@ -33,10 +33,14 @@ extNewHireRouter.put('/:id', (req, res) => {
     
     empUpdate.lastName = req.body.lastName;
     empUpdate.firstName = req.body.firstName;
+    empUpdate.empNum = req.body.empNum;
     empUpdate.email = req.body.email;
     empUpdate.phone = req.body.phone;
-    empUpdate.dateOfBirth = req.body.dateOfBirth;
+    empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
+    empUpdate.los = req.body.los;
+    empUpdate.recruiter = req.body.recruiter;
+    empUpdate.startDate = req.body.startDate;
 
     newHireController
       .updateNewHire(req.params.id ,empUpdate)
@@ -45,7 +49,21 @@ extNewHireRouter.put('/:id', (req, res) => {
         res.json(data);
       })
       .catch(error => console.log(error));
-})
+});
+
+extNewHireRouter.patch('/:id', (req, res) => {
+  for(let key in req.body) {
+    NewHire[key] = req.body[key];
+  }
+
+  newHireController
+    .patchNewHire(req.params.id, NewHire)
+    .then(response => {
+      const data = response.data;
+      res.json(data);
+    })
+    .catch(error => console.log(error));
+});
 
 extNewHireRouter.use('/', (req, res) => {
     res.send('external router is working');

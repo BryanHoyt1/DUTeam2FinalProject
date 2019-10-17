@@ -23,5 +23,9 @@ const updateNewHire = (id, newHire) => {
     return axios.put(`${url}/${id}`, newHire);
 }
 
+const patchNewHire = (id, newHire) => {
+    return axios.patch(`${url}/${id}`, newHire);
+}
+
 module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById,
-    createNewHire: createNewHire, updateNewHire: updateNewHire};
+    createNewHire: createNewHire, updateNewHire: updateNewHire, patchNewHire: patchNewHire};
