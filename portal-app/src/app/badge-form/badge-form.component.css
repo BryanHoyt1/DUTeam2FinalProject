@@ -1,33 +1,17 @@
-body, html {
-  height: 100%;
+.form-group {
+  color: black;
+  line-height: 100px;
+}
+
+.accessHeader {
+  align-items: center;
 }
 
 .img-fluid {
-  opacity: 50%;
-
-  /* min-height: 380px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative; */
+  position: sticky;
+  padding-top: 50px;
 }
 
-/* input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-} */
-
-/* Set a style for the submit button */
-/* .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+h1 {
+  text-align: center;
 }
-
-.btn:hover {
-  opacity: 1;
-} */
