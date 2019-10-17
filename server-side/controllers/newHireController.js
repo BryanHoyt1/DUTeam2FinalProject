@@ -2,17 +2,17 @@
 const axios = require('axios');
 //const newEmp = require('../models/newHire');
 
-const url = 'https://pokeapi.co/api/v2/pokemon';
+const url = 'http://127.0.0.1:5000';
 
 
 const getNewHires = () => {
     //console.log('request received by controller')
-    return axios.get(url);
+    return axios.get(`${url}/newhiretable`);
 };
 
 const getNewHireById = (id) => {
     //console.log('request received by controller');
-    return axios.get(`${url}/${id}`);
+    return axios.get(`${url}/details/${id}`);
 }
 
 const createNewHire = (newHire) => {

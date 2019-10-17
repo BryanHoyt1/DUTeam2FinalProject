@@ -5,18 +5,18 @@ const NewHire = require('../models/newHire');
 const newHireController = require('../controllers/newHireController');
 
 extNewHireRouter.get('/', (req, res) => {
-    //console.log('get request received by router');
+    
     return "You are not authorized to see all records";
 });
 
 extNewHireRouter.get('/:id', (req, res) => {
-    //console.log('get request received by router');
+    
       const id = req.params.id;
       newHireController
         .getNewHireById(id)
         .then(response => {
           //TODO: update what fields are sent back to browser....send entire object?
-          const data = response.data["name"];
+          const data = response.data;
           //console.log(data);
           res.json(data);
         })

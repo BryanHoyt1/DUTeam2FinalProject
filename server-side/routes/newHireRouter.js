@@ -4,10 +4,10 @@ const NewHire = require('../models/newHire');
 
 const newHireController = require('../controllers/newHireController');
 
-//const url = 'https://pokeapi.co/api/v2/pokemon';
+
 
 newHireRouter.get('/', (req, res) => {
-  //console.log('get request received by router');
+  
   newHireController
   .getNewHires(res)
   .then(response =>{
@@ -20,13 +20,13 @@ newHireRouter.get('/', (req, res) => {
 });
 
 newHireRouter.get('/:id', (req, res) => {
-  //console.log('get request received by router');
+  
     const id = req.params.id;
     newHireController
       .getNewHireById(id)
       .then(response => {
         //TODO: update what fields are sent back to browser....send entire object?
-        const data = response.data["name"];
+        const data = response.data;
         //console.log(data);
         res.json(data);
       })
