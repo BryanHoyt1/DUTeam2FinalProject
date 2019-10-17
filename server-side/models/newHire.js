@@ -1,7 +1,7 @@
 class NewHire {
 
     constructor(lastName, firstName, email, phone, dateOfBirth, status) {
-        //this.empId = empId;
+        
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;

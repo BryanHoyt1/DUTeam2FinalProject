@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const newHireRouter = require('./routes/newHireRouter');
+const extNewHireRouter = require('./routes/extNewHireRouter');
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 3000;
@@ -8,7 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/home', newHireRouter);
-//app.use('/empPath', empRouter);
+app.use('/extHome', extNewHireRouter);
 
 
 app.listen(port, () => {

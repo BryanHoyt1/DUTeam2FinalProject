@@ -4,12 +4,12 @@ const NewHire = require('../models/newHire');
 
 const newHireController = require('../controllers/newHireController');
 
-const url = 'https://pokeapi.co/api/v2/pokemon';
+//const url = 'https://pokeapi.co/api/v2/pokemon';
 
 newHireRouter.get('/', (req, res) => {
   //console.log('get request received by router');
   newHireController
-  .getNewHires(url, res)
+  .getNewHires(res)
   .then(response =>{
     const data = response.data;
     //console.log(data);
@@ -23,8 +23,9 @@ newHireRouter.get('/:id', (req, res) => {
   //console.log('get request received by router');
     const id = req.params.id;
     newHireController
-      .getNewHireById(url, id)
+      .getNewHireById(id)
       .then(response => {
+        //TODO: update what fields are sent back to browser....send entire object?
         const data = response.data["name"];
         //console.log(data);
         res.json(data);
@@ -44,7 +45,7 @@ newHireRouter.post('/', (req, res) => {
     newEmp.status = false;
     
     newHireController
-      .createNewHire(url, newEmp)
+      .createNewHire(newEmp)
       .then(response => {
         const data = response.data;
         res.json(data);
@@ -64,7 +65,7 @@ newHireRouter.put('/:id', (req, res) => {
     empUpdate.status = req.body.status;
 
     newHireController
-      .updateNewHire(url, req.params.id ,empUpdate)
+      .updateNewHire(req.params.id ,empUpdate)
       .then(response => {
         const data = response.data;
         res.json(data);

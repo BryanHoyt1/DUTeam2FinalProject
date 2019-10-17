@@ -2,24 +2,24 @@
 const axios = require('axios');
 //const newEmp = require('../models/newHire');
 
-//const url = 'https://pokeapi.co/api/v2/pokemon';
+const url = 'https://pokeapi.co/api/v2/pokemon';
 
 
-const getNewHires = (url) => {
+const getNewHires = () => {
     //console.log('request received by controller')
     return axios.get(url);
 };
 
-const getNewHireById = (url, id) => {
+const getNewHireById = (id) => {
     //console.log('request received by controller');
     return axios.get(`${url}/${id}`);
 }
 
-const createNewHire = (url, newHire) => {
+const createNewHire = (newHire) => {
     return axios.post(url, newHire);
 }
 
-const updateNewHire = (url, id, newHire) => {
+const updateNewHire = (id, newHire) => {
     return axios.put(`${url}/${id}`, newHire);
 }
 
