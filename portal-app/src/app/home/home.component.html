@@ -92,35 +92,35 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
             </div>
             </form>
-            <table class="table">
-              <ng-container>
-                <thead>
-                  <tr>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Recruiter</th>
-                      <th scope="col">Personal Email</th>
-                      <th scope="col">LOS/Title/Roll</th>
-                      <th scope="col">Start Date</th>
-                      <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th style="" scope="row">Joe</th> 
-                    <td>Smith</td>
-                    <td>P. Stemler</td>
-                    <td>joe.smith@gmail.com </td>
-                    <td>Consultant SA&E</td>
-                    <td>01-01-2020</td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    5/8 INCOMPLETE
-                    </button> </td>
-
-                  </tr>
-                </tbody>
-                </ng-container>
-            </table>
+            <div id="empTable">
+              <table class="table">
+                <ng-container>
+                  <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Recruiter</th>
+                        <th scope="col">Personal Email</th>
+                        <th scope="col">LOS/Title/Roll</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let employee of employees">
+                      <td [ngModel]="employee.firstname"></td>
+                      <td [ngModel]="employee.lastname"></td>
+                      <td [ngModel]="employee.recruiter"></td>
+                      <td [ngModel]="employee.email"></td>
+                      <td [ngModel]="employee.LOS"></td>
+                      <td [ngModel]="employee.startdate"></td>
+                      <td [ngModel]="employee.status"></td>
+                    </tr>
+                  </tbody>
+                  </ng-container>
+              </table>
+            </div>
+            
             </div>
         
         </div>

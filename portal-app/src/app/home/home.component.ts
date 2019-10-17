@@ -4,6 +4,8 @@ import { AuthService } from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
+import { Employee } from '../models/employee';
+import { EmployeeDataService } from '../services/emp.data.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomeComponent {
 
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
+  public allEmployees = [];
   // private loginSubscription: Subscription;
 
   // constructor(snackBar: MatSnackBar, authService: AuthService) {
@@ -23,9 +26,18 @@ export class HomeComponent {
   //   this.authService = authService;
   // }
 
-  // ngOnInit(): void {
-  //   this.loggedInUser$ = this.authService.getUser();
-  // }
+  constructor(private employeeDataService : EmployeeDataService) {
+    this.employeeDataService = employeeDataService;
+  }
+
+   ngOnInit(): void {
+     this.employeeDataService.getAllEmployees()
+      .subscribe(
+        (data: Employee[]) => this.allEmployees = data,
+        (err: any) => console.log(err),
+        () => console.log(this.allEmployees)
+      );
+   }
 
   // ngOnDestroy(): void {
   //   this.loginSubscription && this.loginSubscription.unsubscribe();
