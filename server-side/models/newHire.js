@@ -1,12 +1,4 @@
-class newHire {
-
-    /* empId : number;
-    lastName : string;
-    firstName : string;
-    email : string;
-    phone : string; //number?
-    dateOfBirth : Date;
-    complete : boolean; */
+class NewHire {
 
     constructor(lastName, firstName, email, phone, dateOfBirth, status) {
         //this.empId = empId;
@@ -19,4 +11,4 @@ class newHire {
     }
 }
 
- module.exports = newHire;
+ module.exports = NewHire;
