@@ -67,7 +67,9 @@ extNewHireRouter.patch('/:id', (req, res) => {
     .catch(error => console.log(error));
 });
 
-//TODO: add delete path?
+extNewHireRouter.delete('/:id', (req, res) => {
+  res.json("You are not authorized to delete records.");
+});
 
 extNewHireRouter.use('/', (req, res) => {
     res.send('external router is working');

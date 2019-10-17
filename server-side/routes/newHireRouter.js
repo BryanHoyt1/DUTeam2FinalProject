@@ -95,7 +95,15 @@ newHireRouter.patch('/:id', (req, res) => {
     .catch(error => console.log(error));
 });
 
-//TODO: add delete route
+newHireRouter.delete('/:id', (req, res) => {
+  newHireController
+    .deleteNewHire(req.params.id)
+    .then(response => {
+      const data = response.data;
+      res.json(data);
+    })
+    .catch(error => console.log(error));
+});
 
 newHireRouter.use('/', (req, res) => {
     res.send('router is working');

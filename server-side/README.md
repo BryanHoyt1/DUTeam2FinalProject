@@ -2,10 +2,13 @@
 npm install
 
 ## start angular server
+cd to ? folder
 
 ng serve -o
 
 ## start node api server in Bash
+cd to server-side folder
+
 nodemon
 
 or
@@ -13,6 +16,8 @@ or
 node index
 
 ## start flask server in Bash
+
+cd to containing folder (Desktop)
 
 python Flatfile_Flask.py
 
