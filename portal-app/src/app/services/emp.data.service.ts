@@ -4,7 +4,7 @@ import { Employee } from '../models/employee';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root';
+    providedIn: 'root'
 })
 export class EmployeeDataService {
     uri = 'http://localhost:3000/home'
