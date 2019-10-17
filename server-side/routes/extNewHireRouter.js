@@ -6,7 +6,7 @@ const newHireController = require('../controllers/newHireController');
 
 extNewHireRouter.get('/', (req, res) => {
     
-    return "You are not authorized to see all records";
+    return res.json("You are not authorized to see all employee records");
 });
 
 extNewHireRouter.get('/:id', (req, res) => {
@@ -24,23 +24,25 @@ extNewHireRouter.get('/:id', (req, res) => {
 });
 
 extNewHireRouter.post('/', (req, res) => {
-    return "You are not authorized to create a new record."
+
+    return res.json("You are not authorized to create a new record.");
 });
+
 //TODO: add badge form fields?
 extNewHireRouter.put('/:id', (req, res) => {
     let empUpdate = new NewHire();
 
     
-    empUpdate.lastName = req.body.lastName;
-    empUpdate.firstName = req.body.firstName;
+    empUpdate.lastname = req.body.lastname;
+    empUpdate.firstname = req.body.firstname;
     empUpdate.empNum = req.body.empNum;
-    empUpdate.email = req.body.email;
+    empUpdate.persemail = req.body.persemail;
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
-    empUpdate.los = req.body.los;
+    empUpdate.LOS_title = req.body.LOS_title;
     empUpdate.recruiter = req.body.recruiter;
-    empUpdate.startDate = req.body.startDate;
+    empUpdate.startdate = req.body.startdate;
 
     newHireController
       .updateNewHire(req.params.id ,empUpdate)
@@ -64,6 +66,8 @@ extNewHireRouter.patch('/:id', (req, res) => {
     })
     .catch(error => console.log(error));
 });
+
+//TODO: add delete path?
 
 extNewHireRouter.use('/', (req, res) => {
     res.send('external router is working');

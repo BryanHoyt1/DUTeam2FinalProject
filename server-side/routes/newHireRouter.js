@@ -38,11 +38,13 @@ newHireRouter.post('/', (req, res) => {
   //TODO: make sure this includes all required fields (only required fields?)
     let newEmp = new NewHire();
     
-    newEmp.lastName = req.body.lastName;
-    newEmp.firstName = req.body.firstName;
-    newEmp.email = req.body.email;
+    newEmp.lastname = req.body.lastname;
+    newEmp.firstname = req.body.firstname;
+    newEmp.persemail = req.body.persemail;
     newEmp.phone = req.body.phone;
     newEmp.dateOfBirth = req.body.dateOfBirth;
+    newEmp.recruiter = req.body.recruiter;
+    newEmp.startdate = req.body.startdate;
     //newEmp.status = false;
     
     newHireController
@@ -59,16 +61,16 @@ newHireRouter.put('/:id', (req, res) => {
     let empUpdate = new NewHire();
 
     
-    empUpdate.lastName = req.body.lastName;
-    empUpdate.firstName = req.body.firstName;
+    empUpdate.lastname = req.body.lastname;
+    empUpdate.firstname = req.body.firstname;
     empUpdate.empNum = req.body.empNum;
-    empUpdate.email = req.body.email;
+    empUpdate.persemail = req.body.persemail;
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
-    empUpdate.los = los;
+    empUpdate.LOS_title = LOS_title;
     empUpdate.recruiter = req.body.recruiter;
-    empUpdate.startDate = req.body.startDate;
+    empUpdate.startdate = req.body.startdate;
 
     newHireController
       .updateNewHire(req.params.id ,empUpdate)
@@ -92,6 +94,8 @@ newHireRouter.patch('/:id', (req, res) => {
     })
     .catch(error => console.log(error));
 });
+
+//TODO: add delete route
 
 newHireRouter.use('/', (req, res) => {
     res.send('router is working');

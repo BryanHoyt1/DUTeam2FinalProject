@@ -27,5 +27,7 @@ const patchNewHire = (id, newHire) => {
     return axios.patch(`${url}/${id}`, newHire);
 }
 
+//TODO: add delete request
+
 module.exports = {getNewHires:getNewHires, getNewHireById:getNewHireById,
     createNewHire: createNewHire, updateNewHire: updateNewHire, patchNewHire: patchNewHire};
