@@ -1,7 +1,11 @@
 ## install dependencies
 npm install
 
-## start server
+## start angular server
+
+ng serve -o
+
+## start node api server in Bash
 nodemon
 
 or
