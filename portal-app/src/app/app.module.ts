@@ -9,11 +9,13 @@ import { HeaderModule } from './header/header.module';
 import { HomeModule } from './home/home.module';
 import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
+import { BadgeFormComponent } from './badge-form/badge-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BadgeFormComponent
   ],
   imports: [
     BrowserModule,
