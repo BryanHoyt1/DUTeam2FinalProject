@@ -12,13 +12,16 @@ import { EmployeeDataService } from '../services/emp.data.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   // private readonly snackBar: MatSnackBar;
   // private readonly authService: AuthService;
 
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
   public allEmployees = [];
+  public employeeColumns: string[] = ["firstname", "lastname", "recruiter", "email", "los", "startdate", "status"];
+  public employees$: Observable<Employee[]>;
+
   // private loginSubscription: Subscription;
 
   // constructor(snackBar: MatSnackBar, authService: AuthService) {
@@ -31,12 +34,20 @@ export class HomeComponent {
   }
 
    ngOnInit(): void {
-     this.employeeDataService.getAllEmployees()
-      .subscribe(
-        (data: Employee[]) => this.allEmployees = data,
-        (err: any) => console.log(err),
-        () => console.log(this.allEmployees)
-      );
+     this.getEmployees();
+   }
+
+   /* private getEmployees() : void {
+     this.employees$ = this.employeeDataService.getAllEmployees();
+   } */
+
+   private getEmployees() : void {
+    this.employeeDataService.getAllEmployees()
+    .subscribe(
+      (data: Employee[]) => this.allEmployees = data,
+      (err: any) => console.log(err),
+      () => console.log(this.allEmployees)
+    );
    }
 
   // ngOnDestroy(): void {
