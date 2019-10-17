@@ -55,6 +55,7 @@ newHireRouter.post('/', (req, res) => {
 });
 
 newHireRouter.put('/:id', (req, res) => {
+  //TODO: add badge form fields?
     let empUpdate = new NewHire();
 
     

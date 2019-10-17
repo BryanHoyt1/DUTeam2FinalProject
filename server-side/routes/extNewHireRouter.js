@@ -26,7 +26,7 @@ extNewHireRouter.get('/:id', (req, res) => {
 extNewHireRouter.post('/', (req, res) => {
     return "You are not authorized to create a new record."
 });
-
+//TODO: add badge form fields?
 extNewHireRouter.put('/:id', (req, res) => {
     let empUpdate = new NewHire();
 
