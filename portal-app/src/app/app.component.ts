@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portal-app';
+}
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) { }
 }

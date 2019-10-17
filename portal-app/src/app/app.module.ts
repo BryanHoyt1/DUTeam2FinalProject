@@ -9,11 +9,14 @@ import { HeaderModule } from './header/header.module';
 import { HomeModule } from './home/home.module';
 import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfigComponent } from './config/config.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { LoginModule } from './login/login.module';
     HomeModule,
     AddNewModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
