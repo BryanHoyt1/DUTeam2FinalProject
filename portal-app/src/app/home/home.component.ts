@@ -4,18 +4,25 @@ import { AuthService } from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
+import { Employee } from '../models/employee';
+import { EmployeeDataService } from '../services/emp.data.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   // private readonly snackBar: MatSnackBar;
   // private readonly authService: AuthService;
 
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
+  public allEmployees = [];
+  public employeeColumns: string[] = ["firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
+  public employees$: Observable<Employee[]>;
+  private readonly employeeDataService: EmployeeDataService;
+
   // private loginSubscription: Subscription;
 
   // constructor(snackBar: MatSnackBar, authService: AuthService) {
@@ -23,9 +30,22 @@ export class HomeComponent {
   //   this.authService = authService;
   // }
 
-  // ngOnInit(): void {
-  //   this.loggedInUser$ = this.authService.getUser();
-  // }
+  constructor(employeeDataService : EmployeeDataService) {
+    this.employeeDataService = employeeDataService;
+  }
+
+   ngOnInit(): void {
+     this.getEmployees();
+   }
+
+   private getEmployees() : void {
+    this.employeeDataService.getAllEmployees()
+    .subscribe(
+      (data: Employee[]) => this.allEmployees = data,
+      (err: any) => console.log(err),
+      () => console.log(this.allEmployees)
+    );
+   }
 
   // ngOnDestroy(): void {
   //   this.loginSubscription && this.loginSubscription.unsubscribe();

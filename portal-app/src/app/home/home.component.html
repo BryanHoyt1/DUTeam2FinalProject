@@ -92,58 +92,47 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
             </div>
             </form>
-            <table class="table">
-              <ng-container>
-                <thead>
-                  <tr>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Recruiter</th>
-                      <th scope="col">Personal Email</th>
-                      <th scope="col">LOS/Title/Roll</th>
-                      <th scope="col">Start Date</th>
-                      <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th style="" scope="row">Joe</th> 
-                    <td>Smith</td>
-                    <td>P. Stemler</td>
-                    <td>joe.smith@gmail.com </td>
-                    <td>Consultant SA&E</td>
-                    <td>01-01-2020</td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    5/8 INCOMPLETE
-                    </button> </td>
 
-                  </tr>
-                </tbody>
+            <div id="employeeTable">
+              <mat-table #table [dataSource]="allEmployees">
+                <ng-container matColumnDef="firstname">
+                  <mat-header-cell class="employee-list-firstname" *matHeaderCellDef>First Name</mat-header-cell>
+                  <mat-cell class="employee-list-firstname" *matCellDef="let employee"> {{employee.firstname}} </mat-cell>
                 </ng-container>
-            </table>
+                <ng-container matColumnDef="lastname">
+                  <mat-header-cell class="employee-list-lastname" *matHeaderCellDef>Last Name</mat-header-cell>
+                  <mat-cell class="employee-list-lastname" *matCellDef="let employee"> {{employee.lastname}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="recruiter">
+                  <mat-header-cell class="employee-list-recruiter" *matHeaderCellDef>Recruiter</mat-header-cell>
+                  <mat-cell class="employee-list-recruiter" *matCellDef="let employee"> {{employee.recruiter}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="persemail">
+                  <mat-header-cell class="employee-list-email" *matHeaderCellDef>Personal Email</mat-header-cell>
+                  <mat-cell class="employee-list-email" *matCellDef="let employee"> {{employee.persemail}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="LOS_title">
+                  <mat-header-cell class="employee-list-los" *matHeaderCellDef>LOS/Title/Role</mat-header-cell>
+                  <mat-cell class="employee-list-los" *matCellDef="let employee"> {{employee.LOS_title}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="startdate">
+                  <mat-header-cell class="employee-list-startdate" *matHeaderCellDef>Start Date</mat-header-cell>
+                  <mat-cell class="employee-list-startdate" *matCellDef="let employee"> {{employee.startdate}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <mat-header-cell class="employee-list-status" *matHeaderCellDef>Status</mat-header-cell>
+                  <mat-cell class="employee-list-status" *matCellDef="let employee"> {{employee.status}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: employeeColumns;"></mat-row>
+              </mat-table>
+            </div>
+
+           
+            
             </div>
         
         </div>
       
     </div>
 </div>
-
-<!-- Fetching Data From PHP Server Running MySQL -->
-<!-- <div ng-app="myApp" ng-controller="customersCtrl">
-
-<table>
-  <tr ng-repeat="x in names">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.Country }}</td>
-  </tr>
-</table>
-
-</div>
-
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-  $http.get("customers_mysql.php")
-  .then(function (response) {$scope.names = response.data.records;});
-});
-</script> -->
