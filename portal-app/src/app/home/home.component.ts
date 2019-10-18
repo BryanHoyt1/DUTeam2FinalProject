@@ -4,6 +4,8 @@ import { AuthService } from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
+import { SearchParams } from "../models/searchParams";
+import { FilterOption } from "../models/filterOption";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,9 @@ import { Credentials } from '../shared/credentials';
 export class HomeComponent {
   // private readonly snackBar: MatSnackBar;
   // private readonly authService: AuthService;
+  public searchFor: string;
+  public searchBy: string;
+  public sortAsc: boolean;
 
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
@@ -27,6 +32,14 @@ export class HomeComponent {
   //   this.loggedInUser$ = this.authService.getUser();
   // }
 
+  public async search(): Promise<void> {
+    const searchParams: SearchParams = new SearchParams();
+    searchParams.filterProp = this.searchBy;
+    searchParams.filterText = this.searchFor;
+    searchParams.sortAsc = this.sortAsc;
+
+    //this.users = await this.userService.getUsers(searchParams);
+  }
   // ngOnDestroy(): void {
   //   this.loginSubscription && this.loginSubscription.unsubscribe();
   // }
