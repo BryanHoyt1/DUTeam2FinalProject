@@ -36,7 +36,8 @@ export class HomeComponent implements OnInit {
   }
 
    ngOnInit(): void {
-     this.getEmployees();
+    this.employee = new Employee;
+    this.getEmployees();
    }
 
    private getEmployees() : void {

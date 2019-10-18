@@ -27,7 +27,6 @@
                 </div>
               </div>
 
-                Modal
                 <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -38,21 +37,21 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form>
+                        <form *ngIf="employee.firstname">
                           Employee Number:<br>
-                          <input type="text" name="emplnumber" placeholder="01"><br>
+                          <p class="employee-list-id">{{employee.employeeID}}</p>
                           First name:<br>
-                          <input type="text" name="firstname" placeholder="Carol"><br>
+                          <p class="employee-list-firstname">{{employee.firstname}}</p>
                           Last name:<br>
-                          <input type="text" name="lastname" placeholder="Smith"><br>
+                          <p class="employee-list-lastname">{{employee.lastname}}</p>
                           Email:<br>
-                          <input type="email" name="email" placeholder="Carol.Smith@gmail.com"><br>
+                          <p class="employee-list-email">{{employee.persemail}}</p>
                           Phone:<br>
-                          <input type="tel" name="phone" placeholder=""><br>
+                          <p class="employee-list-phone">{{employee.phone}}</p>
                           Date of Birth:<br>
-                          <input type="date" name="birthdate" placeholder=""><br>
+                          <p class="employee-list-startdate">{{employee.startdate}}</p>
                           Status:<br>
-                          <input type="checkbox" name="status" placeholder="INCOMPLETE">
+                          <input type="checkbox" name="status">
                           Complete
                       </form>
                     </div>
@@ -108,10 +107,10 @@
             </form>
 
             <div id="employeeTable">
-              <mat-table #table [dataSource]="allEmployees">
+              <mat-table #table [dataSource]="allEmployees" *ngIf="allEmployees">
                 
                 <ng-container matColumnDef="employeeID">
-                  <mat-header-cell class="employee-list-id" *matHeaderCellDef>Emp ID</mat-header-cell>
+                  <mat-header-cell class="employee-list-id"  *matHeaderCellDef>Emp ID</mat-header-cell>
                   <mat-cell class="employee-list-id" *matCellDef="let employee"> {{employee.employeeID}} </mat-cell>
                 </ng-container>
                 
@@ -148,6 +147,7 @@
                 <mat-row *matRowDef="let row; columns: employeeColumns;" (click)="getOneEmployee(row)"></mat-row>
               </mat-table>
             </div>
+
 
             <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
