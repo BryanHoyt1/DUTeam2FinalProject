@@ -26,4 +26,8 @@ export class EmployeeDataService {
     public getAllEmployees(): Observable<Employee[]> {
         return this.http.get<Employee[]>(this.uri);
     }
+
+    public getEmpByID(id): Observable<Employee> {
+        return this.http.get<Employee>(`${this.uri}/${id}`);
+    }
 }

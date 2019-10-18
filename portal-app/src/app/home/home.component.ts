@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
   public allEmployees = [];
-  public employeeColumns: string[] = ["firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
+  public employee : Employee;
+  public employeeColumns: string[] = ["employeeID", "firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
   public employees$: Observable<Employee[]>;
   private readonly employeeDataService: EmployeeDataService;
 
@@ -50,6 +51,15 @@ export class HomeComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.loginSubscription && this.loginSubscription.unsubscribe();
   // }
+
+  public getOneEmployee(employee: Employee) : void {
+    this.employeeDataService.getEmpByID(employee.employeeID)
+    .subscribe(
+      (data: Employee) => this.employee = data,
+      (err: any) => console.log(err),
+      () => console.log(this.employee)
+    );
+  }
 
   public login(): void {
     if (this.credentials.username && this.credentials.password) {

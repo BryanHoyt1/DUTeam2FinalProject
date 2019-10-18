@@ -10,7 +10,7 @@ employees = list()
 with open ("Employee_table.txt", "r") as x:
     for l in x:
         (empID, fname, lname, recruiter, email, LOS, startD) = l.strip().split("|")
-        employees.append({"employee_id": int(empID), "firstname": fname, "lastname": lname, "recruiter": recruiter, "persemail": email, "LOS_title": LOS, "startdate": startD})
+        employees.append({"employeeID": empID, "employee_id": empID, "firstname": fname, "lastname": lname, "recruiter": recruiter, "persemail": email, "LOS_title": LOS, "startdate": startD})
 
 new_dict = {}
 for item in employees:
@@ -19,13 +19,13 @@ for item in employees:
 
 routes = [{"Available Routes": ""},{"/newhiretable": "Complete list of new hires"}, {"/details/<id>": "Input an ID to get details on a specific new hire"}]
 
+print(new_dict['1'])
+
 @app.route("/", methods=["GET"])
 def landing():
     
     return jsonify(routes)
     
-
-
 
 @app.route("/newhiretable", methods=["GET"])
 def new_hire():
@@ -40,7 +40,7 @@ def new_hire():
 def details(id):
     
     try:
-        return jsonify(new_dict[int(id)])
+        return jsonify(new_dict[str(id)])
     except:
         return jsonify(0)
 

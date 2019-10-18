@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 
-app.get('/')
+app.get('/');
 
 app.use(bodyParser.urlencoded({extended: false}));
 

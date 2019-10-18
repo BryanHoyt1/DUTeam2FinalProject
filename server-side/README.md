@@ -24,3 +24,7 @@ python Flatfile_Flask.py
 ## base Url for database routes
 
 http://127.0.0.1:5000/[route]
+
+## base url for nodeAPI
+
+localhost:3000/[route]
