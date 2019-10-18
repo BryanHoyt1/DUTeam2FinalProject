@@ -95,6 +95,12 @@
 
             <div id="employeeTable">
               <mat-table #table [dataSource]="allEmployees">
+                
+                <ng-container matColumnDef="employeeID">
+                  <mat-header-cell class="employee-list-id" *matHeaderCellDef>Emp ID</mat-header-cell>
+                  <mat-cell class="employee-list-id" *matCellDef="let employee"> {{employee.employeeID}} </mat-cell>
+                </ng-container>
+                
                 <ng-container matColumnDef="firstname">
                   <mat-header-cell class="employee-list-firstname" *matHeaderCellDef>First Name</mat-header-cell>
                   <mat-cell class="employee-list-firstname" *matCellDef="let employee"> {{employee.firstname}} </mat-cell>
@@ -124,8 +130,28 @@
                   <mat-cell class="employee-list-status" *matCellDef="let employee"> {{employee.status}} </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: employeeColumns;"></mat-row>
+                <mat-row *matRowDef="let row; columns: employeeColumns;" (click)="getOneEmployee(row)"></mat-row>
               </mat-table>
+            </div>
+
+            <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-h idden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add New</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
            
