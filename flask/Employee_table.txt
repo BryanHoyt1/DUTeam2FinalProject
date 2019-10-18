@@ -1,0 +1,5 @@
+1|Carol|Smith|Adam Riggs|Carol.Smith@gmail.com|DA|2005-11-22
+2|Phillip|Miller|Melissa Walling|Phillip.Miller@gmail.com|DA|2011-10-13
+3|Chris|Wilson|Bob Kueser|Chris.Wilson@gmail.com|SAE|1998-05-01
+4|Fred|King|Pete Stemler|Fred.King@gmail.com|BA|2015-02-25
+5|Katie|Coleman|Adam Riggs|Katie.Coleman@gmail.com|DL|2018-07-03
