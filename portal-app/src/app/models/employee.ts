@@ -3,7 +3,7 @@ export class Employee {
     lastname: string;
     recruiter: string;
     persEmail: string;
-    los: string;
-    startDate: Date;
+    LOS_title: string;
+    startdate: Date;
     status: string;
 }

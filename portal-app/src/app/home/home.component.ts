@@ -19,8 +19,9 @@ export class HomeComponent implements OnInit {
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
   public allEmployees = [];
-  public employeeColumns: string[] = ["firstname", "lastname", "recruiter", "email", "los", "startdate", "status"];
+  public employeeColumns: string[] = ["firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
   public employees$: Observable<Employee[]>;
+  private readonly employeeDataService: EmployeeDataService;
 
   // private loginSubscription: Subscription;
 
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
   //   this.authService = authService;
   // }
 
-  constructor(private employeeDataService : EmployeeDataService) {
+  constructor(employeeDataService : EmployeeDataService) {
     this.employeeDataService = employeeDataService;
   }
 
