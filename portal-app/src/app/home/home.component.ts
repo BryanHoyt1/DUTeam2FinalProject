@@ -38,10 +38,6 @@ export class HomeComponent implements OnInit {
      this.getEmployees();
    }
 
-   /* private getEmployees() : void {
-     this.employees$ = this.employeeDataService.getAllEmployees();
-   } */
-
    private getEmployees() : void {
     this.employeeDataService.getAllEmployees()
     .subscribe(
