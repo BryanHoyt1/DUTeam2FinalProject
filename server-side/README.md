@@ -28,3 +28,9 @@ http://127.0.0.1:5000/[route]
 ## base url for nodeAPI
 
 localhost:3000/[route]
+
+## routes for nodeAPI
+
+/home [HR router]
+/extHome [external router (no access to getAll or post)]
+/login 
