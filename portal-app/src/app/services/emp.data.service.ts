@@ -30,4 +30,8 @@ export class EmployeeDataService {
     public getEmpByID(id): Observable<Employee> {
         return this.http.get<Employee>(`${this.uri}/${id}`);
     }
+
+    public addEmp(employee: Employee): Observable<Employee> {
+        return this.http.post<Employee>(this.uri, employee);
+    }
 }

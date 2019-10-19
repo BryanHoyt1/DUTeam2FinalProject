@@ -6,6 +6,8 @@ import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
 import { Employee } from '../models/employee';
 import { EmployeeDataService } from '../services/emp.data.service';
+//import { ngForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
    ngOnInit(): void {
+     this.employee = new Employee();
      this.getEmployees();
    }
 
@@ -60,6 +63,16 @@ export class HomeComponent implements OnInit {
       () => console.log(this.employee)
     );
   }
+
+  public addEmp(employee: Employee) : void {
+    this.employeeDataService.addEmp(employee)
+    .subscribe(
+      (data: Employee) => this.employee = data,
+      (err: any) => console.log(err),
+      () => console.log(this.employee)
+    );
+  }
+  
 
   public login(): void {
     if (this.credentials.username && this.credentials.password) {
