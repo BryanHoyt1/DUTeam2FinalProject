@@ -25,7 +25,7 @@ def main():
 
     query = (f"SELECT int_login.employee_id, employee.firstname FROM int_login \
             JOIN employee ON int_login.employee_id = employee.employee_id \
-            WHERE username = '{username}' AND password = '{password}'") #.format(username, password)
+            WHERE username = '{username}' AND password = '{password}'") 
 
     cursor.execute(query)
     records = cursor.fetchall()
@@ -101,9 +101,9 @@ def update():
     cursor = connection.cursor()
 
     empID = request.json['employee_id']
-    startdate = request.json['startdate']
+    lastname = request.json['persemail']
 
-    query = ("UPDATE employee SET startdate = '{}' where employee_id = {}").format(startdate, empID)
+    query = ("UPDATE employee SET persemail = '{}' where employee_id = {}").format(lastname, empID)
 
     try:
         cursor.execute(query)
