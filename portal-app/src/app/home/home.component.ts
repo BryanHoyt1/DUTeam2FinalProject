@@ -72,6 +72,15 @@ export class HomeComponent implements OnInit {
       () => console.log(this.employee)
     );
   }
+
+  public updateEmp(employee: Employee) : void {
+    this.employeeDataService.updateEmp(employee)
+    .subscribe(
+      (data: Employee) => this.employee = data,
+      (err: any) => console.log(err),
+      () => console.log(this.employee)
+    );
+  }
   
 
   public login(): void {

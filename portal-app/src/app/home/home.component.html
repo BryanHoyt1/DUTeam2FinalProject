@@ -43,23 +43,23 @@
                           <input type="text" name="emplnumber" placeholder="01" class="employee-list-id" [value]="employee.employeeID"><br>
                           <p class="employee-list-id"></p>
                           First name:<br>
-                          <input type="text" name="firstname" placeholder="Carol" [value]="employee.firstname"><br>
+                          <input type="text" name="firstname" placeholder="Carol" [(ngModel)]="employee.firstname"><br>
                           Last name:<br>
-                          <input type="text" name="lastname" placeholder="Smith" [value]="employee.lastname"><br>
+                          <input type="text" name="lastname" placeholder="Smith" [(ngModel)]="employee.lastname"><br>
                           Email:<br>
-                          <input type="email" name="email" placeholder="Carol.Smith@gmail.com"[value]="employee.persemail"><br>
+                          <input type="email" name="email" placeholder="Carol.Smith@gmail.com"[(ngModel)]="employee.persemail"><br>
                           Phone:<br>
-                          <input type="tel" name="phone" placeholder="" [value]="employee.phone"><br>
+                          <input type="tel" name="phone" placeholder="" [(ngModel)]="employee.phone"><br>
                           Date of Birth:<br>
-                          <input type="date" name="birthdate" placeholder="" [value]="employee.birthdate"><br>
+                          <input type="date" name="birthdate" placeholder="" [(ngModel)]="employee.birthdate"><br>
                           Status:<br>
-                          <input type="checkbox" name="status" placeholder="INCOMPLETE" [value]="employee.status">
+                          <input type="checkbox" name="status" placeholder="INCOMPLETE" [(ngModel)]="employee.status">
                           Complete
                       </ng-form>
                     </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
                       </div>
                     </div>
                   </div>
