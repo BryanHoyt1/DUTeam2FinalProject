@@ -2,7 +2,7 @@
 npm install
 
 ## start angular server
-cd to ? folder
+cd to prtal-app folder
 
 ng serve -o
 
