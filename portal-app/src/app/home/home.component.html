@@ -27,10 +27,7 @@
                 </div>
               </div>
 
-<<<<<<< HEAD
-=======
                 <!-- Modal -->
->>>>>>> origin/createUpdate
                 <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -42,58 +39,35 @@
                       </div>
                       <!--Detail Page-->
                       <div class="modal-body">
-<<<<<<< HEAD
-                        <form *ngIf="employee.firstname">
-                          Employee Number:
-                          <p class="employee-list-id">{{employee.employeeID}}</p>
-                          First name:<br>
-                          <p class="employee-list-firstname">{{employee.firstname}}</p>
-                          Last name:<br>
-                          <p class="employee-list-lastname">{{employee.lastname}}</p>
-                          Email:<br>
-                          <p class="employee-list-email">{{employee.persemail}}</p>
-                          Phone:<br>
-                          <p class="employee-list-phone">{{employee.phone}}</p>
-                          LOS Title:<br>
-                          <p class="employee-list-phone">{{employee.LOS_title}}</p>
-                          Recruiter:<br>
-                          <p class="employee-list-phone">{{employee.recruiter}}</p>
-                          Start Date:<br>
-                          <p class="employee-list-startdate">{{employee.startdate}}</p>
-                          Date of Birth:<br>
-                          <p class="employee-list-dateofbirth">{{employee.dateOfBirth}}</p>
-                          Status:<br>
-                          <input type="checkbox" name="status">
-=======
                         <ng-form #empForm="ngForm">
                           Employee Number:<br>
-                          <input type="text" name="emplnumber" placeholder="01" class="employee-list-id" [value]="employee.employeeID"><br>
+                          <input type="text" name="emplnumber" class="employee-list-id" [value]="employee.employeeID"><br>
                           <p class="employee-list-id"></p>
                           First name:<br>
-                          <input type="text" name="firstname" placeholder="Carol" [(ngModel)]="employee.firstname"><br>
+                          <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
                           Last name:<br>
-                          <input type="text" name="lastname" placeholder="Smith" [(ngModel)]="employee.lastname"><br>
+                          <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
                           Email:<br>
-                          <input type="email" name="email" placeholder="Carol.Smith@gmail.com"[(ngModel)]="employee.persemail"><br>
+                          <input type="email" name="email" [(ngModel)]="employee.persemail"><br>
                           Phone:<br>
-                          <input type="tel" name="phone" placeholder="" [(ngModel)]="employee.phone"><br>
+                          <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
+                          LOS / Title:<br>
+                          <input type="text" name="LOS_title" [(ngModel)]="employee.LOS_title"><br>
+                          Recruiter:<br>
+                          <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
+                          Start Date:<br>
+                          <input type="date" name="startdate" [(ngModel)]="employee.startdate"><br>
                           Date of Birth:<br>
-                          <input type="date" name="birthdate" placeholder="" [(ngModel)]="employee.birthdate"><br>
+                          <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
                           Status:<br>
-                          <input type="checkbox" name="status" placeholder="INCOMPLETE" [(ngModel)]="employee.status">
->>>>>>> origin/createUpdate
+                          <input type="checkbox" name="status" [(ngModel)]="employee.status">
                           Complete
                       </ng-form>
                     </div>
                       <div class="modal-footer">
-<<<<<<< HEAD
-                        <button type="button" class="btn btn-info">Edit</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-=======
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info">E-mail</button>
                         <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
->>>>>>> origin/createUpdate
                       </div>
                     </div>
                   </div>
@@ -113,8 +87,6 @@
                       <!--Add new button-->
                       <div class="modal-body">
                         <ng-form #newEmpForm="ngForm">
-                            Employee Number:<br>
-                            <input type="text" name="emplnumber" placeholder="" [(ngModel)]="newEmployee.employeeID"><br>
                             First name:<br>
                             <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
                             Last name:<br>
@@ -122,17 +94,13 @@
                             Email:<br>
                             <input type="email" name="email" [(ngModel)]="newEmployee.persemail"><br>
                             Phone:<br>
-<<<<<<< HEAD
-                            <input type="tel" name="phone"><br>
-                            LOS Title:<br>
-                            <input type="text" name="los"><br>
-                            Recruiter:<br>
-                            <input type="text" name="recruiter"><br>
-                            Start Date:<br>
-                            <input type="date" name="startdate"><br>
-=======
                             <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
->>>>>>> origin/createUpdate
+                            LOS / Title:<br>
+                            <input type="text" name="LOS_title" [(ngModel)]="newEmployee.LOS_title"><br>
+                            Recruiter:<br>
+                            <input type="text" name="recruiter" [(ngModel)]="newEmployee.recruiter"><br>
+                            Start Date:<br>
+                            <input type="date" name="startdate"  [(ngModel)]="newEmployee.startdate"><br>
                             Date of Birth:<br>
                             <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
                             Status:<br>

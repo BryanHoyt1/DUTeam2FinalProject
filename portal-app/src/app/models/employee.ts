@@ -7,4 +7,7 @@ export class Employee {
     LOS_title: string;
     startdate: Date;
     status: string;
+    phone: string;
+    birthdate: Date;
+
 }
