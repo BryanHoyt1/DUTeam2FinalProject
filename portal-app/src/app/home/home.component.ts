@@ -6,6 +6,7 @@ import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
 import { Employee } from '../models/employee';
 import { EmployeeDataService } from '../services/emp.data.service';
+import { MailService } from '../services/mail.service';
 //import { ngForm } from '@angular/forms';
 
 
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   public employeeColumns: string[] = ["employeeID", "firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
   public employees$: Observable<Employee[]>;
   private readonly employeeDataService: EmployeeDataService;
+  private readonly mailService: MailService;
 
   // private loginSubscription: Subscription;
 
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
 
   constructor(employeeDataService : EmployeeDataService) {
     this.employeeDataService = employeeDataService;
+    this.mailService = this.mailService;
   }
 
    ngOnInit(): void {
@@ -95,5 +98,10 @@ export class HomeComponent implements OnInit {
       //   duration: 3000,
       //   verticalPosition: "top"});
     };
+  }
+
+  public sendEmail(employee:Employee): void {
+    this.mailService.sendEmailToEmp(employee.employeeID);
+    //TODO: subscribe to response?
   }
 }
