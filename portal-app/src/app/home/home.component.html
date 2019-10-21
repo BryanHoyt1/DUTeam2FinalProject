@@ -36,9 +36,10 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+                      <!--Detail Page-->
                       <div class="modal-body">
                         <form *ngIf="employee.firstname">
-                          Employee Number:<br>
+                          Employee Number:
                           <p class="employee-list-id">{{employee.employeeID}}</p>
                           First name:<br>
                           <p class="employee-list-firstname">{{employee.firstname}}</p>
@@ -48,8 +49,14 @@
                           <p class="employee-list-email">{{employee.persemail}}</p>
                           Phone:<br>
                           <p class="employee-list-phone">{{employee.phone}}</p>
-                          Date of Birth:<br>
+                          LOS Title:<br>
+                          <p class="employee-list-phone">{{employee.LOS_title}}</p>
+                          Recruiter:<br>
+                          <p class="employee-list-phone">{{employee.recruiter}}</p>
+                          Start Date:<br>
                           <p class="employee-list-startdate">{{employee.startdate}}</p>
+                          Date of Birth:<br>
+                          <p class="employee-list-dateofbirth">{{employee.DOB}}</p>
                           Status:<br>
                           <input type="checkbox" name="status">
                           Complete
@@ -73,6 +80,8 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+
+                      <!--Add new button-->
                       <div class="modal-body">
                         <form>
                             Employee Number:<br>
@@ -85,6 +94,12 @@
                             <input type="email" name="email"><br>
                             Phone:<br>
                             <input type="tel" name="phone"><br>
+                            LOS Title:<br>
+                            <input type="text" name="los"><br>
+                            Recruiter:<br>
+                            <input type="text" name="recruiter"><br>
+                            Start Date:<br>
+                            <input type="date" name="startdate"><br>
                             Date of Birth:<br>
                             <input type="date" name="birthdate"><br>
                             Status:<br>
