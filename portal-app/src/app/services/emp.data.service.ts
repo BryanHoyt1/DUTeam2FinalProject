@@ -15,14 +15,6 @@ export class EmployeeDataService {
         this.http = http;
     }
 
-    /* public getAllEmployees(): Observable<Employee[]> {
-        return this.http.get<Result<Employee[]>>(this.uri)
-        .pipe(
-            map((response: Result<Employee[]>) => response._data),
-            share()
-        );
-    } */
-
     public getAllEmployees(): Observable<Employee[]> {
         return this.http.get<Employee[]>(this.uri);
     }
@@ -32,7 +24,6 @@ export class EmployeeDataService {
     }
 
     public addEmp(newEmployee: Employee): Observable<Employee> {
-    
         return this.http.post<Employee>(this.uri, newEmployee);
     }
 
