@@ -6,12 +6,10 @@ const url = 'http://127.0.0.1:5000';
 
 
 const getNewHires = () => {
-    //console.log('request received by controller')
     return axios.get(`${url}/newhiretable`);
 };
 
 const getNewHireById = (id) => {
-    //console.log('request received by controller');
     return axios.get(`${url}/details/${id}`);
 }
 
