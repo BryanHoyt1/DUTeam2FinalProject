@@ -65,12 +65,12 @@ newHireRouter.put('/:id', (req, res) => {
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
-    empUpdate.LOS_title = LOS_title;
+    empUpdate.LOS_title = req.body.LOS_title;
     empUpdate.recruiter = req.body.recruiter;
     empUpdate.startdate = req.body.startdate;
 
     newHireController
-      .updateNewHire(req.params.id ,empUpdate)
+      .updateNewHire(req.params.id, empUpdate)
       .then(response => {
         const data = response.data;
         res.json(data);

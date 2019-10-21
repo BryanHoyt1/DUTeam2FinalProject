@@ -7,6 +7,7 @@ const getBadges = () => {
 
 const getBadgeByID = (id) => {
     //TODO: what id is needed to get one badge? employee or form?
+    return axios.get(`${url}/${id}`);
 }
 
 const createBadge = (newBadge) => {
@@ -14,8 +15,8 @@ const createBadge = (newBadge) => {
     return axios.post(url, newBadge);
 }
 
-const updateBadge = (id, badge) => {
-
+const updateBadge = (id, badgeUpdate) => {
+    return axios.put(`${url}/${id}`, badgeUpdate);
 }
 
 module.exports = { getBadges: getBadges, getBadgeByID: getBadgeByID, createBadge: createBadge, updateBadge: updateBadge}

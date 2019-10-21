@@ -1,6 +1,4 @@
-//const newHireRouter = require('../routes/newHireRouter');
 const axios = require('axios');
-//const newEmp = require('../models/newHire');
 
 const url = 'http://127.0.0.1:5000';
 
