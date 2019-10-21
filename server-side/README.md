@@ -2,14 +2,18 @@
 npm install
 
 ## start angular server
-cd to prtal-app folder
+cd to portal-app folder
 
 ng serve -o
+
+or 
+
+npm start
 
 ## start node api server in Bash
 cd to server-side folder
 
-nodemon
+nodemon (will restart the server automatically after saving)
 
 or
 
