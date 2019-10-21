@@ -12,12 +12,14 @@ import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
+import { BadgeFormComponent } from './badge-form/badge-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfigComponent
+    ConfigComponent,
+    BadgeFormComponent
   ],
   imports: [
     BrowserModule,
