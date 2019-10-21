@@ -9,8 +9,9 @@ const getBadgeByID = (id) => {
     //TODO: what id is needed to get one badge? employee or form?
 }
 
-const createBadge = (badge) => {
-    
+const createBadge = (newBadge) => {
+    //TODO: use template string with url to route to correct data path
+    return axios.post(url, newBadge);
 }
 
 const updateBadge = (id, badge) => {
