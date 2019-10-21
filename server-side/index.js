@@ -4,6 +4,7 @@ const newHireRouter = require('./routes/newHireRouter');
 const extNewHireRouter = require('./routes/extNewHireRouter');
 const loginRouter = require('./routes/loginRouter');
 const badgeRouter = require('./routes/badgeRouter');
+const mailRouter = require('./routes/mailRouter');
 const bodyParser = require('body-parser');
 //app.use(express.bodyParser());
 
@@ -21,6 +22,7 @@ app.use('/login', loginRouter);
 app.use('/home', bodyParser.json(), newHireRouter);
 app.use('/extHome', bodyParser.json(), extNewHireRouter);
 app.use('/badge', bodyParser.json(), badgeRouter);
+app.use('/mail', mailRouter);
 
 
 app.listen(port, () => {
