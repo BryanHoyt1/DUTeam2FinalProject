@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   public credentials: Credentials = new Credentials();
   public allEmployees = [];
   public employee : Employee;
+  public newEmployee : Employee;
   public employeeColumns: string[] = ["employeeID", "firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
   public employees$: Observable<Employee[]>;
   private readonly employeeDataService: EmployeeDataService;
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
 
    ngOnInit(): void {
      this.employee = new Employee();
+     this.newEmployee = new Employee();
      this.getEmployees();
    }
 
@@ -64,8 +66,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  public addEmp(employee: Employee) : void {
-    this.employeeDataService.addEmp(employee)
+  public addEmp(newEmployee: Employee) : void {
+    this.employeeDataService.addEmp(newEmployee)
     .subscribe(
       (data: Employee) => this.employee = data,
       (err: any) => console.log(err),

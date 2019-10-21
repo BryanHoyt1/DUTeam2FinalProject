@@ -78,25 +78,25 @@
                       <div class="modal-body">
                         <ng-form #newEmpForm="ngForm">
                             Employee Number:<br>
-                            <input type="text" name="emplnumber" [(ngModel)]="employee.employeeID"><br>
+                            <input type="text" name="emplnumber" placeholder="" [(ngModel)]="newEmployee.employeeID"><br>
                             First name:<br>
-                            <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
+                            <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
                             Last name:<br>
-                            <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
+                            <input type="text" name="lastname" [(ngModel)]="newEmployee.lastname"><br>
                             Email:<br>
-                            <input type="email" name="email" [(ngModel)]="employee.persemail"><br>
+                            <input type="email" name="email" [(ngModel)]="newEmployee.persemail"><br>
                             Phone:<br>
-                            <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
+                            <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
                             Date of Birth:<br>
-                            <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
+                            <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
                             Status:<br>
-                            <input type="checkbox" name="status" [(ngModel)]="employee.status">
+                            <input type="checkbox" name="status" [(ngModel)]="newEmployee.status">
                             Complete
                         </ng-form>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" (click)="addEmp()">Add New</button>
+                        <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
                       </div>
                     </div>
                   </div>
