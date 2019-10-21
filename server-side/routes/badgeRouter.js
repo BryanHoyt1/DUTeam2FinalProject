@@ -6,16 +6,15 @@ badgeRouter.get('/', (req, res) => {
 //TODO: is a getAll required for the badge table?
 });
 
-badgeRouter.get('/:badge_id', (req, res) => {
-
+badgeRouter.get('/:id', (req, res) => {
+//TODO: which id? badge or employee?
 });
 
 badgeRouter.post('/', (req, res) => {
-//TODO: build object with plateNum, vehMake, vehModel, vehColor
-//and employee ID?
+//TODO: build object with plateNum, vehMake, vehModel, vehColor (and employeeID?)
 });
 
-badgeRouter.put('/', (req, res) => {
+badgeRouter.put('/:id', (req, res) => {
 
 });
 

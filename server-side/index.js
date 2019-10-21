@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/login', loginRouter);
 app.use('/home', bodyParser.json(), newHireRouter);
-app.use('/extHome', extNewHireRouter);
+app.use('/extHome', bodyParser.json(), extNewHireRouter);
 app.use('/badge', bodyParser.json(), badgeRouter);
 
 
