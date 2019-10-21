@@ -7,6 +7,7 @@ import { HomeComponent } from './home.component';
 import {CdkTableModule} from "@angular/cdk/table";
 import { LoginModule } from '../login/login.module';
 import { HeaderModule } from '../header/header.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,8 @@ import { HeaderModule } from '../header/header.module';
     MatOptionModule,
     MatCheckboxModule,
     LoginModule,
-    HeaderModule
+    HeaderModule,
+    FormsModule
   ],
   exports: [HomeComponent]
 })

@@ -2,14 +2,18 @@
 npm install
 
 ## start angular server
-cd to ? folder
+cd to portal-app folder
 
 ng serve -o
+
+or 
+
+npm start
 
 ## start node api server in Bash
 cd to server-side folder
 
-nodemon
+nodemon (will restart the server automatically after saving)
 
 or
 
@@ -28,3 +32,9 @@ http://127.0.0.1:5000/[route]
 ## base url for nodeAPI
 
 localhost:3000/[route]
+
+## routes for nodeAPI
+
+/home [HR router]
+/extHome [external router (no access to getAll or post)]
+/login 

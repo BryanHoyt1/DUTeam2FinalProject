@@ -27,6 +27,10 @@
                 </div>
               </div>
 
+<<<<<<< HEAD
+=======
+                <!-- Modal -->
+>>>>>>> origin/createUpdate
                 <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -38,6 +42,7 @@
                       </div>
                       <!--Detail Page-->
                       <div class="modal-body">
+<<<<<<< HEAD
                         <form *ngIf="employee.firstname">
                           Employee Number:
                           <p class="employee-list-id">{{employee.employeeID}}</p>
@@ -59,13 +64,36 @@
                           <p class="employee-list-dateofbirth">{{employee.dateOfBirth}}</p>
                           Status:<br>
                           <input type="checkbox" name="status">
+=======
+                        <ng-form #empForm="ngForm">
+                          Employee Number:<br>
+                          <input type="text" name="emplnumber" placeholder="01" class="employee-list-id" [value]="employee.employeeID"><br>
+                          <p class="employee-list-id"></p>
+                          First name:<br>
+                          <input type="text" name="firstname" placeholder="Carol" [(ngModel)]="employee.firstname"><br>
+                          Last name:<br>
+                          <input type="text" name="lastname" placeholder="Smith" [(ngModel)]="employee.lastname"><br>
+                          Email:<br>
+                          <input type="email" name="email" placeholder="Carol.Smith@gmail.com"[(ngModel)]="employee.persemail"><br>
+                          Phone:<br>
+                          <input type="tel" name="phone" placeholder="" [(ngModel)]="employee.phone"><br>
+                          Date of Birth:<br>
+                          <input type="date" name="birthdate" placeholder="" [(ngModel)]="employee.birthdate"><br>
+                          Status:<br>
+                          <input type="checkbox" name="status" placeholder="INCOMPLETE" [(ngModel)]="employee.status">
+>>>>>>> origin/createUpdate
                           Complete
-                      </form>
+                      </ng-form>
                     </div>
                       <div class="modal-footer">
+<<<<<<< HEAD
                         <button type="button" class="btn btn-info">Edit</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+=======
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
+>>>>>>> origin/createUpdate
                       </div>
                     </div>
                   </div>
@@ -84,16 +112,17 @@
 
                       <!--Add new button-->
                       <div class="modal-body">
-                        <form>
+                        <ng-form #newEmpForm="ngForm">
                             Employee Number:<br>
-                            <input type="text" name="emplnumber"><br>
+                            <input type="text" name="emplnumber" placeholder="" [(ngModel)]="newEmployee.employeeID"><br>
                             First name:<br>
-                            <input type="text" name="firstname"><br>
+                            <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
                             Last name:<br>
-                            <input type="text" name="lastname"><br>
+                            <input type="text" name="lastname" [(ngModel)]="newEmployee.lastname"><br>
                             Email:<br>
-                            <input type="email" name="email"><br>
+                            <input type="email" name="email" [(ngModel)]="newEmployee.persemail"><br>
                             Phone:<br>
+<<<<<<< HEAD
                             <input type="tel" name="phone"><br>
                             LOS Title:<br>
                             <input type="text" name="los"><br>
@@ -101,16 +130,19 @@
                             <input type="text" name="recruiter"><br>
                             Start Date:<br>
                             <input type="date" name="startdate"><br>
+=======
+                            <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
+>>>>>>> origin/createUpdate
                             Date of Birth:<br>
-                            <input type="date" name="birthdate"><br>
+                            <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
                             Status:<br>
-                            <input type="checkbox" name="status">
+                            <input type="checkbox" name="status" [(ngModel)]="newEmployee.status">
                             Complete
-                        </form>
+                        </ng-form>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add New</button>
+                        <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
                       </div>
                     </div>
                   </div>
@@ -156,7 +188,8 @@
                 </ng-container>
                 <ng-container matColumnDef="status">
                   <mat-header-cell class="employee-list-status" *matHeaderCellDef>Status</mat-header-cell>
-                  <mat-cell class="employee-list-status" *matCellDef="let employee"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage">INCOMPLETE</button>
+                  <mat-cell class="employee-list-status" *matCellDef="let employee">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee.employeeID)">INCOMPLETE</button>
                   </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
@@ -174,9 +207,7 @@
                       <span aria-h idden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
-                    
-                  </div>
+                  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Add New</button>

@@ -42,11 +42,11 @@ newHireRouter.post('/', (req, res) => {
     newEmp.firstname = req.body.firstname;
     newEmp.persemail = req.body.persemail;
     newEmp.phone = req.body.phone;
-    newEmp.dateOfBirth = req.body.dateOfBirth;
+    newEmp.birthdate = req.body.birthdate;
     newEmp.recruiter = req.body.recruiter;
     newEmp.startdate = req.body.startdate;
-    //newEmp.status = false;
-    
+    newEmp.LOS_title = req.body.LOS_title;
+  
     newHireController
       .createNewHire(newEmp)
       .then(response => {
