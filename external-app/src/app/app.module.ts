@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderModule } from './header/header.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
+import { BadgeFormComponent } from './badge-form/badge-form.component';
 
 @NgModule({
   declarations: [
