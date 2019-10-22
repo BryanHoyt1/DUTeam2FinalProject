@@ -41,29 +41,17 @@
                       <div class="modal-body">
                         <ng-form #empForm="ngForm" *ngIf="employee">
                           Employee Number:<br>
-<<<<<<< HEAD
-                          <input type="text" name="emplnumber" class="employee-list-id" [value]="employee.employee_id"><br>
+                          <input type="text" name="employee_id" [value]="employee.employee_id"><br>
                           <p class="employee-list-id"></p>
-=======
-                          <!-- <input type="text" name="employee_id" [value]="employee.employee_id"><br> -->
-                          <!-- <p class="employee-list-id"></p> -->
->>>>>>> origin/badgeRoute
                           First name:<br>
                           <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
                           Last name:<br>
                           <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
                           Email:<br>
-<<<<<<< HEAD
-                          <input type="email" name="email" [(ngModel)]="employee.personal_email"><br>
-                          Phone:<br>
-                          <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
-                          los / Title:<br>
-=======
                           <input type="email" name="personal_email" [(ngModel)]="employee.personal_email"><br>
                           Phone:<br>
                           <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
                           LOS / Title:<br>
->>>>>>> origin/badgeRoute
                           <input type="text" name="los_title" [(ngModel)]="employee.los_title"><br>
                           Recruiter:<br>
                           <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
