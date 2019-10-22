@@ -13,6 +13,8 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
+import { MatTableModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { BadgeFormComponent } from './badge-form/badge-form.component';
     AppRoutingModule,
     LoginModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
