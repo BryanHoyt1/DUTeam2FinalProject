@@ -13,13 +13,15 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
+import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigComponent,
-    BadgeFormComponent
+    BadgeFormComponent,
+    AffirmativeFormComponent
   ],
   imports: [
     BrowserModule,

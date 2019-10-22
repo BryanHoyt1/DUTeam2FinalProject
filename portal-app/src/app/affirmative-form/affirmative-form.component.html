@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Badge Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script>
+      function myFunction() {
+        window.print();
+      }
+      </script>
+</head>
+
+<body>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <h2>Voluntary Affirmative Action Information</h2>
+    <h5> (Completion of Information Below is Voluntary)</h5>
+      <hr>
+      <div>
+        <p>We consider applicants for all positions without regard to race, color, religion, sex, sexual orientation,
+          national origin, age, marital or veteran status, the presence of a non-job-related medical condition or
+          handicap, or any other legally protected status.
+        </p>
+        <hr>
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="form-group">
+          <label for="position">Position(s) Applied For:</label>
+          <input type="text" class="form-control" id="position" name="position">
+        </div>
+        <div class="form-group">
+          <label for="fullname">Applicant's Name:</label>
+          <input type="text" class="form-control" id="fullname" placeholder="LAST, FIRST, MIDDLE" name="fullname">
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" class="form-control" id="address" placeholder="STREET, CITY, STATE, ZIP" name="address">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Phone with Area Code" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="referral">Referral Source:</label>
+          <select name="referral">
+            <option value="volvo">Walk-in</option>
+            <option value="saab">Newspaper Ad</option>
+            <option value="fiat">Employment Agency</option>
+            <option value="audi">Job Service</option>
+            <option value="volvo">Employee Referral</option>
+            <option value="saab">Other</option>
+          </select>
+        </div>
+        <div>
+          <p>As required, we comply with government regulations including Affirmative Action obligations where they
+            apply. In an effort to comply with requirements regarding government record keeping, reporting and other
+            legal obligations, we ask that you complete this applicant data survey. Your cooperation is appreciated.</p>
+          <p>Please be advised that this information is not a part of your official application for employment. It is
+            considered confidential data that will not be used in any hiring decision.</p>
+        </div>
+        <p><b>Check one: </b>
+        </p><input type="checkbox" value=""> Male
+        <input type="checkbox" value=""> Female
+        <br>
+        <br>
+        <p><b>Check one of the following: </b></p>
+        <input type="checkbox" value=""><b> White (Not Hispanic or Latino):</b>
+        <p>A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.</p>
+        <input type="checkbox" value=""><b> Black or African American (Not Hispanic or Latino):</b>><p>A person having
+          origins in any of the black racial groups of Africa.</p>
+        <input type="checkbox" value=""><b> Asian (Not Hispanic or Latino):</b>
+        <p>A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian
+          subcontinent, including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine
+          Islands, Thailand and Vietnam. </p>
+        <input type="checkbox" value=""><b> American Indian or Alaska Native (Not Hispanic or Latino):</b>
+        <p>A person having origins in any of the original peoples of North and South America (including Central
+          America), and who maintains tribal affiliation or community attachment.</p>
+        <input type="checkbox" value=""><b> Hispanic or Latino:</b>
+        <p>A person of Cuban, Mexican, Puerto Rican, South or Central AMerican or other Spanish culture or origin,
+          regardless or race.</p>
+        <input type="checkbox" value=""><B> Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino):</B>
+        <p>A person having origins in any of the peoples of Hawaii, Guam, Samoa, or other Pacific Islands.</p>
+        <input type="checkbox" value=""><b> Two or More Races (Not Hispanic or Latino):</b>
+        <p>All persons who identify with more than one of the above races.</p>
+        <hr>
+        <h4>TO BE COMPLETED BY APPLICANT -- NOT FOR INTERVIEW PURPOSES -- TO BE FILED SEPARATELY FROM APPLICATION</h4>
+        <H6>EMPLOYMENT APPLICATION 100907</H6>
+        <hr>
+        <button type="submit" class="btn btn-primary">Submit</button><button type="print" class="btn btn-secondary" onclick="window.print();return false;"> Print </button>
+        <hr>  
+        
+      </div>
+      <br>
+      <br>
+      <br>
