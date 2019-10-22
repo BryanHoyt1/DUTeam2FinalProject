@@ -4,28 +4,87 @@
 <app-header></app-header>
 
 <div class="home" fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex fxLayout="column">
 
-        <div style="padding: 30px;">    
+      <div style="padding: 30px;">
 
 
-          <h5>Sort</h5>
-            <form class="form-inline">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sort
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item">Most Recent</a>
-                  <a class="dropdown-item">First Name</a>
-                  <a class="dropdown-item">Last Name</a>
-                  <a class="dropdown-item">Recruiter</a>
-                  <a class="dropdown-item">los/Title/Roll</a>
-                  <a class="dropdown-item">Status</a>
+        <h5>Sort</h5>
+        <form class="form-inline">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">Most Recent</a>
+              <a class="dropdown-item">First Name</a>
+              <a class="dropdown-item">Last Name</a>
+              <a class="dropdown-item">Recruiter</a>
+              <a class="dropdown-item">los/Title/Roll</a>
+              <a class="dropdown-item">Status</a>
 
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Detail Page</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!--Detail Page-->
+                <div class="modal-body">
+                  <ng-form #empForm="ngForm">
+                    Employee Number:<br>
+                    <input type="text" name="emplnumber" class="employee-list-id" [value]="employee.employee_id"><br>
+                    <p class="employee-list-id"></p>
+                    First name:<br>
+                    <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
+                    Last name:<br>
+                    <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
+                    Email:<br>
+                    <input type="email" name="email" [(ngModel)]="employee.personal_email"><br>
+                    Phone:<br>
+                    <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
+                    los / Title:<br>
+                    <input type="text" name="los_title" [(ngModel)]="employee.los_title"><br>
+                    Recruiter:<br>
+                    <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
+                    Start Date:<br>
+                    <input type="date" name="startdate" [(ngModel)]="employee.startdate"><br>
+                    Date of Birth:<br>
+                    <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
+                    Status:<br>
+                    <input type="checkbox" name="status" [(ngModel)]="employee.status">
+                    Complete
+                  </ng-form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-info">E-mail</button>
+                  <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -73,49 +132,36 @@
                   </div>
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-
-                      <!--Add new button-->
-                      <div class="modal-body">
-                        <ng-form #newEmpForm="ngForm">
-                            First name:<br>
-                            <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
-                            Last name:<br>
-                            <input type="text" name="lastname" [(ngModel)]="newEmployee.lastname"><br>
-                            Email:<br>
-                            <input type="email" name="email" [(ngModel)]="newEmployee.personal_email"><br>
-                            Phone:<br>
-                            <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
-                            los / Title:<br>
-                            <input type="text" name="los_title" [(ngModel)]="newEmployee.los_title"><br>
-                            Recruiter:<br>
-                            <input type="text" name="recruiter" [(ngModel)]="newEmployee.recruiter"><br>
-                            Start Date:<br>
-                            <input type="date" name="startdate"  [(ngModel)]="newEmployee.startdate"><br>
-                            Date of Birth:<br>
-                            <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
-                            Status:<br>
-                            <input type="checkbox" name="status" [(ngModel)]="newEmployee.status">
-                            Complete
-                        </ng-form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
-                      </div>
-                    </div>
-                  </div>
+                <!--Add new button-->
+                <div class="modal-body">
+                  <ng-form #newEmpForm="ngForm">
+                    First name:<br>
+                    <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
+                    Last name:<br>
+                    <input type="text" name="lastname" [(ngModel)]="newEmployee.lastname"><br>
+                    Email:<br>
+                    <input type="email" name="email" [(ngModel)]="newEmployee.personal_email"><br>
+                    Phone:<br>
+                    <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
+                    los / Title:<br>
+                    <input type="text" name="los_title" [(ngModel)]="newEmployee.los_title"><br>
+                    Recruiter:<br>
+                    <input type="text" name="recruiter" [(ngModel)]="newEmployee.recruiter"><br>
+                    Start Date:<br>
+                    <input type="date" name="startdate" [(ngModel)]="newEmployee.startdate"><br>
+                    Date of Birth:<br>
+                    <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
+                    Status:<br>
+                    <input type="checkbox" name="status" [(ngModel)]="newEmployee.status">
+                    Complete
+                  </ng-form>
                 </div>
-
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
+                </div>
+              </div>
+                
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
               <div class="new-button btn float-right">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
@@ -163,32 +209,92 @@
                 <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: employeeColumns;"></mat-row>
               </mat-table>
+
             </div>
+          </div>
+
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          <div class="new-button btn float-right">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
+          </div>
+        </form>
+
+        <div id="employeeTable">
+          <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <ng-container matColumnDef="employee_id">
+              <th mat-header-cell class="employee-list-id" *matHeaderCellDef mat-sort-header>Emp ID</th>
+              <td mat-cell class="employee-list-id" *matCellDef="let employee"> {{employee.employee_id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstname">
+              <th mat-header-cell class="employee-list-firstname" *matHeaderCellDef mat-sort-header>First Name</th>
+              <td mat-cell class="employee-list-firstname" *matCellDef="let employee"> {{employee.firstname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastname">
+              <th mat-header-cell class="employee-list-lastname" *matHeaderCellDef mat-sort-header>Last Name</th>
+              <td mat-cell class="employee-list-lastname" *matCellDef="let employee"> {{employee.lastname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="recruiter">
+              <th mat-header-cell class="employee-list-recruiter" *matHeaderCellDef mat-sort-header>Recruiter</th>
+              <td mat-cell class="employee-list-recruiter" *matCellDef="let employee"> {{employee.recruiter}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="personal_email">
+              <th mat-header-cell class="employee-list-email" *matHeaderCellDef mat-sort-header>Personal Email</th>
+              <td mat-cell class="employee-list-email" *matCellDef="let employee"> {{employee.personal_email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="los_title">
+              <th mat-header-cell class="employee-list-los" *matHeaderCellDef mat-sort-header>LOS/Title/Role</th>
+              <td mat-cell class="employee-list-los" *matCellDef="let employee"> {{employee.los_title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startdate">
+              <th mat-header-cell class="employee-list-startdate" *matHeaderCellDef mat-sort-header>Start Date</th>
+              <td mat-cell class="employee-list-startdate" *matCellDef="let employee"> {{employee.startdate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell class="employee-list-status" *matHeaderCellDef mat-sort-header>Status</th>
+              <td mat-cell class="employee-list-status" *matCellDef="let employee">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage"
+                  (click)="getOneEmployee(employee.employee_id)">INCOMPLETE</button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="employeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: employeeColumns;" (click)="getOneEmployee(row)"></tr>
+          </table>
+        </div>
 
 
-            <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-h idden="true">&times;</span>
-                    </button>
-                  </div>
-                  
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add New</button>
-                  </div>
-                </div>
+
+        <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-h idden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add New</button>
               </div>
             </div>
+          </div>
+        </div>
 
-           
-            
-            </div>
+
+
+        <!-- </div>
         
         </div>
       
     </div>
-</div>
+</div> -->
