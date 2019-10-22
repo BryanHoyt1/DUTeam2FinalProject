@@ -9,6 +9,7 @@ export class Employee {
      public startdate: Date;
      public phone: string;
      public birthdate: Date;
+     public status: string;
 } 
 
 // employee_id: string;

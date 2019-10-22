@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit {
     this.employeeDataService.addEmp(newEmployee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      //(err: any) => console.log(err),
-      (err: any) => alert(err),
+      (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -86,8 +86,8 @@ export class HomeComponent implements OnInit {
     this.employeeDataService.updateEmp(employee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      //(err: any) => console.log(err),
-      (err: any) => alert(err),
+      (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
