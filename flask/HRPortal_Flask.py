@@ -169,6 +169,39 @@ def add_user():
         connection.close()
 
 
+@app.route('/accessbadge', methods = ["POST"])
+def access_badge():
+    connection = connectPG()
+    cursor = connection.cursor()
+
+
+    empID = str(request.json['employee_id'])
+    plate = str(request.json['plate_num'])
+    vehMake = str(request.json['veh_make'])
+    vehModel = str(request.json['veh_model'])
+    vehColor = str(request.json['veh_color'])
+    
+
+    query1 = f"INSERT INTO access_card_form (plate_num, veh_make, veh_model, veh_color) VALUES \
+            ('{plate}', '{vehMake}', '{vehModel}', '{vehColor}');"
+
+    query2 = f"INSERT INTO forms (employee_id, access_form_id) VALUES \
+            ('{empID}', nextval('access_serial'));"
+    
+    try:
+        cursor.execute(query1)
+        cursor.execute(query2)
+        connection.commit()
+        return jsonify("Record entered successfully")
+    except:
+        return jsonify("Sorry, something went wrong.")
+
+    if(connection):
+        cursor.close()
+        connection.close()
+
+
+
 @app.route('/update', methods = ['POST'])
 def update():
     connection = connectPG()
@@ -197,33 +230,21 @@ def update():
         return jsonify("Sorry, something went wrong.")
 
 
-@app.route('/serial', methods = ['GET'])
-def serial():
-    connection = connectPG()
-    cursor = connection.cursor()
-
-    query = "SELECT nextval('serial');"
-
-    cursor.execute(query)
-    records = cursor.fetchall()
-
-    try:
-        return jsonify(records)
-    except:
-        return jsonify(0)
-
-
 
 def DBS_recruiter (rec_name):
-
+    addr = "Three CityPlace, Ste. 400 | St. Louis, MO 63141"
+    extra = "800.737.8200 | www.daugherty.com"
+    
     if rec_name == "Melissa Walling":
-        return ("Melissa.Walling@daugherty.com")
+        return (f"314.432.8200 x4178<br />Melissa.Walling@daugherty.com<br />{addr}<br />{extra}")
     elif rec_name == "Adam Riggs":
         return ("Adam.Riggs@daugherty.com")
     elif rec_name == "Bob Kueser":
         return ("Robert.Kueser@daugherty.com")
     elif rec_name == "Pete Stemler":
         return ("Pete.Stemler@daugherty.com")
+    elif rec_name == "Derrick Stewart":
+        return ("derrick.stewart@daugherty.com")
 
 
 
@@ -233,16 +254,19 @@ def mailer():
 
     firstname = (request.json['firstname'])
     recruiter = (request.json['recruiter'])
-    recruiter_email = DBS_recruiter(recruiter)
+    recruiter_info = DBS_recruiter(recruiter)
 
 
     try:
         msg = Message("Hello", sender=MailUsername, recipients=["austen.manser@daugherty.com"])
 
-        msg.html = f"<h5>{firstname},</h5> <p>We are so excited for you to be joining Team Daugherty! <br /><br /> To get all the official paperwork started, \
-            please log into the Employee Portal at blahblahblah.com. You will then be prompted to enter your login and password. The login name will be your email and the \
-            password will be your last name. <br /><br /> Please make sure you complete all the highlighted paperwork! <br /><br /> Thank you, </p> {recruiter} <br /> {recruiter_email}"
-
+        msg.html = f"<h5>{firstname},</h5> <p>Congratulations on the offer to join Daugherty Business Solutions! \
+            We are very pleased to have you be a part of our family here. Everyone is excited for your start date and to \
+            have you join the Daugherty team.  We know you are going to be a fantastic addition to the team and look forward \
+            to the exciting growth in your career!!<br /><br /> To get all the official paperwork started, \
+            please <a href='http://www.google.com'>Click here to login to the Employee Portal</a> You will be prompted \
+            to enter your login and password. Your login name will be your email and your password will be your last name. <br /><br /> Please \
+            make sure you complete all the highlighted paperwork! <br /><br /> Thank you, </p> {recruiter} <br />Senior Recruiting Specialist <br /> {recruiter_info} "
 
         mail.send(msg)
 
