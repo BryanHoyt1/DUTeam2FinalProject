@@ -37,6 +37,6 @@ export class EmployeeDataService {
     }
 
     public updateEmp(employee: Employee): Observable<Employee> {
-        return this.http.put<Employee>(`${this.uri}/${employee.employeeID}`, employee);
+        return this.http.put<Employee>(`${this.uri}/${employee.employee_id}`, employee);
     }
 }

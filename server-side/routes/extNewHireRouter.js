@@ -36,11 +36,11 @@ extNewHireRouter.put('/:id', (req, res) => {
     empUpdate.lastname = req.body.lastname;
     empUpdate.firstname = req.body.firstname;
     empUpdate.empNum = req.body.empNum;
-    empUpdate.persemail = req.body.persemail;
+    empUpdate.personal_email = req.body.personal_email;
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
-    empUpdate.LOS_title = req.body.LOS_title;
+    empUpdate.los_title = req.body.los_title;
     empUpdate.recruiter = req.body.recruiter;
     empUpdate.startdate = req.body.startdate;
 

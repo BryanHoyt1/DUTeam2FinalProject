@@ -9,8 +9,8 @@ app = Flask(__name__)
 employees = list()
 with open ("Employee_table.txt", "r") as x:
     for l in x:
-        (empID, fname, lname, recruiter, email, LOS, startD) = l.strip().split("|")
-        employees.append({"employeeID": empID, "employee_id": empID, "firstname": fname, "lastname": lname, "recruiter": recruiter, "persemail": email, "LOS_title": LOS, "startdate": startD})
+        (empID, fname, lname, recruiter, email, los_title, startD) = l.strip().split("|")
+        employees.append({"employee_id": empID, "employee_id": empID, "firstname": fname, "lastname": lname, "recruiter": recruiter, "personal_email": email, "los_title": los_title, "startdate": startD})
 
 new_dict = {}
 for item in employees:

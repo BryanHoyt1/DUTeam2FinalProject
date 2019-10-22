@@ -40,12 +40,12 @@ newHireRouter.post('/', (req, res) => {
     
     newEmp.lastname = req.body.lastname;
     newEmp.firstname = req.body.firstname;
-    newEmp.persemail = req.body.persemail;
+    newEmp.personal_email = req.body.personal_email;
     newEmp.phone = req.body.phone;
     newEmp.birthdate = req.body.birthdate;
     newEmp.recruiter = req.body.recruiter;
     newEmp.startdate = req.body.startdate;
-    newEmp.LOS_title = req.body.LOS_title;
+    newEmp.los_title = req.body.los_title;
   
     newHireController
       .createNewHire(newEmp)
@@ -64,11 +64,11 @@ newHireRouter.put('/:id', (req, res) => {
     empUpdate.lastname = req.body.lastname;
     empUpdate.firstname = req.body.firstname;
     empUpdate.empNum = req.body.empNum;
-    empUpdate.persemail = req.body.persemail;
+    empUpdate.personal_email = req.body.personal_email;
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
     empUpdate.status = req.body.status;
-    empUpdate.LOS_title = LOS_title;
+    empUpdate.los_title = los_title;
     empUpdate.recruiter = req.body.recruiter;
     empUpdate.startdate = req.body.startdate;
 

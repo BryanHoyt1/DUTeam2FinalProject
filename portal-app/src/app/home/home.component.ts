@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   public allEmployees = [];
   public employee : Employee;
   public newEmployee : Employee;
-  public employeeColumns: string[] = ["employeeID", "firstname", "lastname", "recruiter", "persemail", "LOS_title", "startdate", "status"];
+  public employeeColumns: string[] = ["employee_id", "firstname", "lastname", "recruiter", "personal_email", "los_title", "startdate", "status"];
   public employees$: Observable<Employee[]>;
   private readonly employeeDataService: EmployeeDataService;
 
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   // }
 
   public getOneEmployee(employee: Employee) : void {
-    this.employeeDataService.getEmpByID(employee.employeeID)
+    this.employeeDataService.getEmpByID(employee.employee_id)
     .subscribe(
       (data: Employee) => this.employee = data,
       (err: any) => console.log(err),

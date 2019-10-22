@@ -1,10 +1,10 @@
 export class Employee {
-    employeeID: string;
+    employee_id: string;
     firstname: string;
     lastname: string;
     recruiter: string;
-    persEmail: string;
-    LOS_title: string;
+    personal_email: string;
+    los_title: string;
     startdate: Date;
     status: string;
     phone: string;
