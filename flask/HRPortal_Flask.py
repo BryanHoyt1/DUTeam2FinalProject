@@ -15,8 +15,8 @@ app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME = 'amanser1@gmail.com',
-    MAIL_PASSWORD = 'testtest'
+    MAIL_USERNAME = MailUsername,
+    MAIL_PASSWORD = MailPassword
     )
 
 
@@ -212,7 +212,7 @@ def mailer():
 
 
     try:
-        msg = Message("Hello", sender="amanser1@gmail.com", recipients=["austen.manser@daugherty.com"])
+        msg = Message("Hello", sender=MailUsername, recipients=["austen.manser@daugherty.com"])
 
         msg.html = f"<h5>{firstname},</h5> <p>We are so excited for you to be joining Team Daugherty! <br /><br /> To get all the official paperwork started, \
             please log into the Employee Portal at blahblahblah.com. You will then be prompted to enter your login and password. The login name will be your email and the \
