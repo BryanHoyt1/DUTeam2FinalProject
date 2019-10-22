@@ -39,19 +39,31 @@
                       </div>
                       <!--Detail Page-->
                       <div class="modal-body">
-                        <ng-form #empForm="ngForm">
+                        <ng-form #empForm="ngForm" *ngIf="employee">
                           Employee Number:<br>
+<<<<<<< HEAD
                           <input type="text" name="emplnumber" class="employee-list-id" [value]="employee.employee_id"><br>
                           <p class="employee-list-id"></p>
+=======
+                          <!-- <input type="text" name="employee_id" [value]="employee.employee_id"><br> -->
+                          <!-- <p class="employee-list-id"></p> -->
+>>>>>>> origin/badgeRoute
                           First name:<br>
                           <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
                           Last name:<br>
                           <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
                           Email:<br>
+<<<<<<< HEAD
                           <input type="email" name="email" [(ngModel)]="employee.personal_email"><br>
                           Phone:<br>
                           <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
                           los / Title:<br>
+=======
+                          <input type="email" name="personal_email" [(ngModel)]="employee.personal_email"><br>
+                          Phone:<br>
+                          <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
+                          LOS / Title:<br>
+>>>>>>> origin/badgeRoute
                           <input type="text" name="los_title" [(ngModel)]="employee.los_title"><br>
                           Recruiter:<br>
                           <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
@@ -66,7 +78,7 @@
                     </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info">E-mail</button>
+                        <button type="button" class="btn btn-info" (click)="sendEmail(employee)">E-mail</button>
                         <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
                       </div>
                     </div>
@@ -147,7 +159,7 @@
                   <mat-cell class="employee-list-email" *matCellDef="let employee"> {{employee.personal_email}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="los_title">
-                  <mat-header-cell class="employee-list-los" *matHeaderCellDef>los/Title/Role</mat-header-cell>
+                  <mat-header-cell class="employee-list-los" *matHeaderCellDef>LOS/Title/Role</mat-header-cell>
                   <mat-cell class="employee-list-los" *matCellDef="let employee"> {{employee.los_title}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="startdate">
@@ -157,11 +169,11 @@
                 <ng-container matColumnDef="status">
                   <mat-header-cell class="employee-list-status" *matHeaderCellDef>Status</mat-header-cell>
                   <mat-cell class="employee-list-status" *matCellDef="let employee">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee.employee_id)">INCOMPLETE</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee)">INCOMPLETE</button>
                   </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: employeeColumns;" (click)="getOneEmployee(row)"></mat-row>
+                <mat-row *matRowDef="let row; columns: employeeColumns;"></mat-row>
               </mat-table>
             </div>
 

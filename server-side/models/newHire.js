@@ -4,7 +4,7 @@ class NewHire {
 //TODO: add badge form fields?
     constructor(newHireId, lastname, firstname, empNum, personal_email, phone, birthdate, los_title, status, recruiter, startdate) {
         
-        this.newHireId = newHireId;
+        this.employeeID = employeeID;
         this.lastname = lastname;
         this.firstname = firstname;
         this.empNum = empNum;
@@ -13,8 +13,6 @@ class NewHire {
         this.birthdate = birthdate;
         this.los_title = los_title;
         this.status = status;
-
-        //TODO: do los and recruiter need enums?
         this.recruiter = recruiter;
         this.startdate = startdate;
     }

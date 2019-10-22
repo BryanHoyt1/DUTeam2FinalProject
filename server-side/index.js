@@ -3,6 +3,8 @@ const app = express();
 const newHireRouter = require('./routes/newHireRouter');
 const extNewHireRouter = require('./routes/extNewHireRouter');
 const loginRouter = require('./routes/loginRouter');
+const badgeRouter = require('./routes/badgeRouter');
+const mailRouter = require('./routes/mailRouter');
 const bodyParser = require('body-parser');
 //app.use(express.bodyParser());
 
@@ -13,12 +15,16 @@ app.use(cors());
 
 
 app.get('/');
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.use('/login', loginRouter);
-app.use('/home', bodyParser.json(), newHireRouter);
+app.use('/home', newHireRouter);
 app.use('/extHome', extNewHireRouter);
+app.use('/badge', badgeRouter);
+app.use('/mail', mailRouter);
+//app.use('/mail', bodyParser.json(), mailRouter);
 
 
 app.listen(port, () => {
