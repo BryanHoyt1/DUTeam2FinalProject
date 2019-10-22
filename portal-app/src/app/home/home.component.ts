@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit {
   //   this.authService = authService;
   // }
 
-  constructor(employeeDataService : EmployeeDataService) {
+  constructor(employeeDataService : EmployeeDataService, mailService: MailService) {
     this.employeeDataService = employeeDataService;
-    this.mailService = this.mailService;
+    this.mailService = mailService;
   }
 
    ngOnInit(): void {
@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (data: Employee[]) => this.allEmployees = data,
       (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.allEmployees)
     );
    }
@@ -65,6 +66,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (data: Employee) => this.employee = data,
       (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -73,7 +75,8 @@ export class HomeComponent implements OnInit {
     this.employeeDataService.addEmp(newEmployee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      (err: any) => console.log(err),
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -82,7 +85,8 @@ export class HomeComponent implements OnInit {
     this.employeeDataService.updateEmp(employee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      (err: any) => console.log(err),
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -100,8 +104,13 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  public sendEmail(employee:Employee): void {
-    this.mailService.sendEmailToEmp(employee.employeeID);
-    //TODO: subscribe to response?
+  public sendEmail(employee: Employee): void {
+    this.mailService.sendEmail(employee.employeeID)
+    .subscribe(
+      (data: Employee) => this.employee = data,
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
+      () => console.log(this.employee)
+    );
   }
 }

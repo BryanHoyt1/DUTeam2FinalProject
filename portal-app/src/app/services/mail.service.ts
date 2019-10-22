@@ -13,7 +13,7 @@ export class MailService {
         this.http = http;
     }
 
-    public sendEmailToEmp(id): Observable<any> {
+    public sendEmail(id): Observable<any> {
         return this.http.get(`${this.uri}/${id}`);
     }
 }
