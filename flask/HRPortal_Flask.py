@@ -57,6 +57,31 @@ def main():
         return jsonify(0)
 
 
+@app.route('/extlogin', methods = ["POST"])
+def extlogin():
+    connection = connectPG()
+    cursor = connection.cursor()
+
+    username = request.json['personal_email']
+    password = request.json['lastname']
+
+    query = (f"SELECT employee_id, firstname, lastname FROM employee \
+            WHERE personal_email = '{username}' AND lastname = '{password}';") 
+
+    cursor.execute(query)
+    records = cursor.fetchall()
+    colnames = [desc[0] for desc in cursor.description]
+
+    if(connection):
+        cursor.close()
+        connection.close()
+
+    try:
+        return jsonify(dict(zip(colnames, records[0])))
+    except:
+        return jsonify(0)
+
+
 
 @app.route('/newhiretable', methods = ["GET"])
 def newhiretable():
