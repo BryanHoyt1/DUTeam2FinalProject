@@ -4,7 +4,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { MatTableModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule} from "@angular/material";
 import { HomeComponent } from './home.component';
-import {CdkTableModule} from "@angular/cdk/table";
+import { CdkTableModule } from "@angular/cdk/table";
 import { LoginModule } from '../login/login.module';
 import { HeaderModule } from '../header/header.module';
 import { FormsModule } from '@angular/forms';

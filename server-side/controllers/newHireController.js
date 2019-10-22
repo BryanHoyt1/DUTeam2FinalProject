@@ -12,7 +12,7 @@ const getNewHireById = (id) => {
 }
 
 const createNewHire = (newHire) => {
-    return axios.post(url, newHire);
+    return axios.post(`${url}/adduser`, newHire);
 }
 
 const updateNewHire = (id, newHire) => {
