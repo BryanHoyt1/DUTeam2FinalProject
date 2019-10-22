@@ -85,6 +85,51 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="DetailPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Detail Page</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <!--Detail Page-->
+                      <div class="modal-body">
+                        <ng-form #empForm="ngForm" *ngIf="employee">
+                          Employee Number:<br>
+                          <input type="text" name="employee_id" [value]="employee.employee_id"><br>
+                          <p class="employee-list-id"></p>
+                          First name:<br>
+                          <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
+                          Last name:<br>
+                          <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
+                          Email:<br>
+                          <input type="email" name="personal_email" [(ngModel)]="employee.personal_email"><br>
+                          Phone:<br>
+                          <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
+                          LOS / Title:<br>
+                          <input type="text" name="los_title" [(ngModel)]="employee.los_title"><br>
+                          Recruiter:<br>
+                          <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
+                          Start Date:<br>
+                          <input type="date" name="startdate" [(ngModel)]="employee.startdate"><br>
+                          Date of Birth:<br>
+                          <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
+                          Status:<br>
+                          <input type="checkbox" name="status" [(ngModel)]="employee.status">
+                          Complete
+                      </ng-form>
+                    </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info" (click)="sendEmail(employee)">E-mail</button>
+                        <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!--Add new button-->
@@ -116,6 +161,55 @@
                   <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
                 </div>
               </div>
+                
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              <div class="new-button btn float-right">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
+            </div>
+            </form>
+
+            <div id="employeeTable">
+              <mat-table #table [dataSource]="allEmployees" *ngIf="allEmployees">
+                
+                <ng-container matColumnDef="employee_id">
+                  <mat-header-cell class="employee-list-id"  *matHeaderCellDef>Emp ID</mat-header-cell>
+                  <mat-cell class="employee-list-id" *matCellDef="let employee"> {{employee.employee_id}} </mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="firstname">
+                  <mat-header-cell class="employee-list-firstname" *matHeaderCellDef>First Name</mat-header-cell>
+                  <mat-cell class="employee-list-firstname" *matCellDef="let employee"> {{employee.firstname}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="lastname">
+                  <mat-header-cell class="employee-list-lastname" *matHeaderCellDef>Last Name</mat-header-cell>
+                  <mat-cell class="employee-list-lastname" *matCellDef="let employee"> {{employee.lastname}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="recruiter">
+                  <mat-header-cell class="employee-list-recruiter" *matHeaderCellDef>Recruiter</mat-header-cell>
+                  <mat-cell class="employee-list-recruiter" *matCellDef="let employee"> {{employee.recruiter}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="personal_email">
+                  <mat-header-cell class="employee-list-email" *matHeaderCellDef>Personal Email</mat-header-cell>
+                  <mat-cell class="employee-list-email" *matCellDef="let employee"> {{employee.personal_email}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="los_title">
+                  <mat-header-cell class="employee-list-los" *matHeaderCellDef>LOS/Title/Role</mat-header-cell>
+                  <mat-cell class="employee-list-los" *matCellDef="let employee"> {{employee.los_title}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="startdate">
+                  <mat-header-cell class="employee-list-startdate" *matHeaderCellDef>Start Date</mat-header-cell>
+                  <mat-cell class="employee-list-startdate" *matCellDef="let employee"> {{employee.startdate}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <mat-header-cell class="employee-list-status" *matHeaderCellDef>Status</mat-header-cell>
+                  <mat-cell class="employee-list-status" *matCellDef="let employee">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee)">INCOMPLETE</button>
+                  </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="employeeColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: employeeColumns;"></mat-row>
+              </mat-table>
+
             </div>
           </div>
 

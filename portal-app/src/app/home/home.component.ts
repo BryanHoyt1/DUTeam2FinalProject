@@ -6,6 +6,8 @@ import { User } from '../shared/users';
 import { Credentials } from '../shared/credentials';
 import { Employee } from '../models/employee';
 import { EmployeeDataService } from '../services/emp.data.service';
+import { MailService } from '../services/mail.service';
+//import { ngForm } from '@angular/forms';
 
 
 @Component({
@@ -23,10 +25,14 @@ export class HomeComponent implements OnInit {
   public employee : Employee;
   public newEmployee : Employee;
   public employeeColumns: string[] = ["employee_id", "firstname", "lastname", "recruiter", "personal_email", "los_title", "startdate", "status"];
+
   public dataSource: MatTableDataSource<Employee>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   public employees$: Observable<Employee[]>;
+  //public employees$: Observable<Employee[]>;
+
   private readonly employeeDataService: EmployeeDataService;
+  private readonly mailService: MailService;
 
   // private loginSubscription: Subscription;
 
@@ -35,8 +41,9 @@ export class HomeComponent implements OnInit {
   //   this.authService = authService;
   // }
 
-  constructor(employeeDataService : EmployeeDataService) {
+  constructor(employeeDataService : EmployeeDataService, mailService: MailService) {
     this.employeeDataService = employeeDataService;
+    this.mailService = mailService;
   }
 
    ngOnInit(): void {
@@ -52,6 +59,7 @@ export class HomeComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.allEmployees);
         this.dataSource.sort = this.sort;},
       (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.allEmployees)
   
     );
@@ -64,17 +72,20 @@ export class HomeComponent implements OnInit {
   public getOneEmployee(employee: Employee) : void {
     this.employeeDataService.getEmpByID(employee.employee_id)
     .subscribe(
-      (data: Employee) => this.employee = data,
+      (data: Employee) => this.employee = data[0],
       (err: any) => console.log(err),
+      //(err: any) => alert(err),
       () => console.log(this.employee)
     );
-  }
+  } 
+
 
   public addEmp(newEmployee: Employee) : void {
     this.employeeDataService.addEmp(newEmployee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      (err: any) => console.log(err),
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -83,7 +94,8 @@ export class HomeComponent implements OnInit {
     this.employeeDataService.updateEmp(employee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      (err: any) => console.log(err),
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
       () => console.log(this.employee)
     );
   }
@@ -99,5 +111,15 @@ export class HomeComponent implements OnInit {
       //   duration: 3000,
       //   verticalPosition: "top"});
     };
+  }
+
+  public sendEmail(employee: Employee): void {
+    this.mailService.sendEmail(employee.employee_id)
+    .subscribe(
+      (data: Employee) => this.employee = data,
+      //(err: any) => console.log(err),
+      (err: any) => alert(err),
+      () => console.log(this.employee)
+    );
   }
 }

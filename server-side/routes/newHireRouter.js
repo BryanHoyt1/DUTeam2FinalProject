@@ -35,7 +35,6 @@ newHireRouter.get('/:id', (req, res) => {
 
 newHireRouter.post('/', (req, res) => {
     
-  //TODO: make sure this includes all required fields (only required fields?)
     let newEmp = new NewHire();
     
     newEmp.lastname = req.body.lastname;
@@ -57,9 +56,7 @@ newHireRouter.post('/', (req, res) => {
 });
 
 newHireRouter.put('/:id', (req, res) => {
-  //TODO: add badge form fields?
     let empUpdate = new NewHire();
-
     
     empUpdate.lastname = req.body.lastname;
     empUpdate.firstname = req.body.firstname;
@@ -73,7 +70,7 @@ newHireRouter.put('/:id', (req, res) => {
     empUpdate.startdate = req.body.startdate;
 
     newHireController
-      .updateNewHire(req.params.id ,empUpdate)
+      .updateNewHire(req.params.id, empUpdate)
       .then(response => {
         const data = response.data;
         res.json(data);

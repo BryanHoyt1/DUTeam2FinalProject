@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+//import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeDataService } from './services/emp.data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,18 +14,17 @@ import { HeaderModule } from './header/header.module';
 import { HomeModule } from './home/home.module';
 import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
-import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
 import { MatTableModule } from '@angular/material';
-
-
+import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigComponent,
-    BadgeFormComponent
+    BadgeFormComponent,
+    AffirmativeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { MatTableModule } from '@angular/material';
     FormsModule,
     MatTableModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, EmployeeDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
