@@ -63,7 +63,7 @@ def newhiretable():
     connection = connectPG()
     cursor = connection.cursor()
 
-    query = "SELECT employee_id, firstname, lastname, startdate, los_title, recruiter, persemail FROM employee"
+    query = "SELECT employee_id, firstname, lastname, startdate, los_title, recruiter, personal_email FROM employee"
 
     cursor.execute(query)
     records = cursor.fetchall()
@@ -89,7 +89,7 @@ def details(id):
     connection = connectPG()
     cursor = connection.cursor()
 
-    query = f"SELECT employee_id, firstname, lastname, startdate, los_title, recruiter, persemail, phone, birthdate FROM employee \
+    query = f"SELECT employee_id, firstname, lastname, startdate, los_title, recruiter, personal_email, phone, birthdate, employee_num FROM employee \
             WHERE employee_id = {id} "
 
     cursor.execute(query)
@@ -123,12 +123,12 @@ def add_user():
     birth = str(request.json['birthdate'])
     losTitle = str(request.json['los_title'])
     recruiter = str(request.json['recruiter'])
-    pEmail = str(request.json['persemail'])
+    pEmail = str(request.json['personal_email'])
     phone = str(request.json['phone'])
     employeeNum = str(request.json['employee_num'])
 
 
-    query = f"INSERT INTO employee (firstname, lastname, startdate, birthdate, los_title, recruiter, persemail, phone, employee_num) VALUES \
+    query = f"INSERT INTO employee (firstname, lastname, startdate, birthdate, los_title, recruiter, personal_email, phone, employee_num) VALUES \
             ('{firstname}', '{lastname}', '{start}', '{birth}', '{losTitle}', '{recruiter}', '{pEmail}', '{phone}', '{employeeNum}');"
 
     
@@ -156,12 +156,12 @@ def update():
     birth = str(request.json['birthdate'])
     losTitle = str(request.json['los_title'])
     recruiter = str(request.json['recruiter'])
-    pEmail = str(request.json['persemail'])
+    pEmail = str(request.json['personal_email'])
     phone = str(request.json['phone'])
     employeeNum = str(request.json['employee_num'])
 
 
-    query = ("UPDATE employee SET firstname = '{}', lastname = '{}', startdate = '{}', birthdate = '{}', los_title = '{}', recruiter = '{}', persemail = '{}', \
+    query = ("UPDATE employee SET firstname = '{}', lastname = '{}', startdate = '{}', birthdate = '{}', los_title = '{}', recruiter = '{}', personal_email = '{}', \
             phone = '{}', employee_num = '{}' WHERE employee_id = {}").format(firstname, lastname, start, birth, losTitle, recruiter, pEmail, phone, employeeNum, empID)
 
     try:
