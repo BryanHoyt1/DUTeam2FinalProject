@@ -330,4 +330,8 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
+<<<<<<< HEAD
 Credentials.py
+=======
+Credentials.py
+>>>>>>> 59bd5d097715a1b26e6b2de39b26afc227279529
