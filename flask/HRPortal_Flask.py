@@ -236,15 +236,15 @@ def DBS_recruiter (rec_name):
     extra = "800.737.8200 | www.daugherty.com"
     
     if rec_name == "Melissa Walling":
-        return (f"314.432.8200 x4178<br />Melissa.Walling@daugherty.com<br />{addr}<br />{extra}")
+        return (f"Principal Recruiter of Everything Awesome <br />Office: 314.432.8200 x4178 | Cell: 636.439.0231<br />Melissa.Walling@daugherty.com<br />{addr}<br />{extra}")
     elif rec_name == "Adam Riggs":
-        return ("Adam.Riggs@daugherty.com")
+        return (f"Senior Recruiter <br />Office: 314.529.4155 | Cell: 636.387.3136<br />Adam.Riggs@daugherty.com<br />{addr}<br />{extra}")
     elif rec_name == "Bob Kueser":
-        return ("Robert.Kueser@daugherty.com")
+        return (f"Senior Recruiter <br />Office: 314.529.4150 | Cell: 314.630.9145<br />Robert.Kueser@daugherty.com<br />{addr}<br />{extra}")
     elif rec_name == "Pete Stemler":
-        return ("Pete.Stemler@daugherty.com")
+        return (f"Senior Recruiter <br />Office: 314.529.4165 | Cell: 314.504.2575<br />Pete.Stemler@daugherty.com<br />{addr}<br />{extra}")
     elif rec_name == "Derrick Stewart":
-        return ("derrick.stewart@daugherty.com")
+        return (f"Recruiter <br />Office: 314.529.4156 | Cell: 573.883.6195<br />derrick.stewart@daugherty.com<br />{addr}<br />{extra}")
 
 
 
@@ -266,7 +266,9 @@ def mailer():
             to the exciting growth in your career!!<br /><br /> To get all the official paperwork started, \
             please <a href='http://www.google.com'>Click here to login to the Employee Portal</a> You will be prompted \
             to enter your login and password. Your login name will be your email and your password will be your last name. <br /><br /> Please \
-            make sure you complete all the highlighted paperwork! <br /><br /> Thank you, </p> {recruiter} <br />Senior Recruiting Specialist <br /> {recruiter_info} "
+            make sure you complete all the highlighted paperwork! These documents should all be fairly straightforward and easy to \
+            work through on your end. <br /><br />Feel free to call me if you have any additional questions or concerns.<br /><br /> Thank you,  \
+            </p> {recruiter} <br /> {recruiter_info} "
 
         mail.send(msg)
 
