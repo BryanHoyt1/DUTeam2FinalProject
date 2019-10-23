@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MatSnackBar, MatSort, MatSortModule, MatTableDataSource } from '@angular/material';
+import { MatSnackBar, MatSort, MatSortModule, MatTableDataSource, MatSortable } from '@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../shared/users';
@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (data: Employee[]) => {this.allEmployees = data;
         this.dataSource = new MatTableDataSource(this.allEmployees);
+        this.sort.sort(({id: "stardate", start: "desc"}) as MatSortable);
         this.dataSource.sort = this.sort;},
       (err: any) => console.log(err),
       //(err: any) => alert(err),
