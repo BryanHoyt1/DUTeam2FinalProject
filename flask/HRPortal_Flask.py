@@ -288,7 +288,7 @@ def mailer():
 
 
     try:
-        msg = Message("Hello", sender=MailUsername, recipients=["austen.manser@daugherty.com"])
+        msg = Message("Hello", sender=MailUsername, recipients=[email])
 
         msg.html = f"<h5>{firstname},</h5> <p>Congratulations on the offer to join Daugherty Business Solutions! \
             We are very pleased to have you be a part of our family here. Everyone is excited for your start date and to \
