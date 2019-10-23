@@ -17,6 +17,7 @@ import { LoginModule } from './login/login.module';
 import { ConfigComponent } from './config/config.component';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
 import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
+import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.co
     AppRoutingModule,
     LoginModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   providers: [AuthService, EmployeeDataService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { MatSnackBar, MatSort, MatSortModule, MatTableDataSource } from '@angular/material';
 import { AuthService } from '../services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../shared/users';
@@ -26,9 +26,13 @@ export class HomeComponent implements OnInit {
   public newEmployee : Employee;
   public employeeColumns: string[] = ["employee_id", "firstname", "lastname", "recruiter", "personal_email", "los_title", "startdate", "status"];
   //public employees$: Observable<Employee[]>;
-  private readonly employeeDataService: EmployeeDataService;
-  private readonly mailService: MailService;
+  // Sort 
+  public dataSource: MatTableDataSource<Employee>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  public employees$: Observable<Employee[]>;
 
+ private readonly employeeDataService: EmployeeDataService;
+  private readonly mailService: MailService;
   // private loginSubscription: Subscription;
 
   // constructor(snackBar: MatSnackBar, authService: AuthService) {
@@ -50,7 +54,9 @@ export class HomeComponent implements OnInit {
    private getEmployees() : void {
     this.employeeDataService.getAllEmployees()
     .subscribe(
-      (data: Employee[]) => this.allEmployees = data,
+      (data: Employee[]) => {this.allEmployees = data;
+        this.dataSource = new MatTableDataSource(this.allEmployees);
+        this.dataSource.sort = this.sort;},
       (err: any) => console.log(err),
       //(err: any) => alert(err),
       () => console.log(this.allEmployees)
