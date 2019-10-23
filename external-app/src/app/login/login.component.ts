@@ -36,22 +36,23 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data: Employee) => {this.employee = data;
       if(this.employee) {
+        this.authService.data = this.employee;
         this.router.navigate(["home"]);
-        this.getEmployeeData(this.employee);
+        //this.getEmployeeData(this.employee);
       }},
       (err: any) => console.log(err),
       () => console.log(this.employee)
     );
   }
 
-  private getEmployeeData(employee: Employee) : void {
+  /* private getEmployeeData(employee: Employee) : void {
     this.employeeDataService.getEmpByID(employee.employee_id)
       .subscribe(
         (data: Employee) => this.employee = data[0],
         (err: any) => console.log(err),
         () => console.log(this.employee)
       );
-  }
+  } */
 
 
 }

@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { Employee } from '../models/employee';
 import { Observable } from 'rxjs';
 import { EmployeeDataService } from '../services/emp.data.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -12,24 +13,28 @@ import { EmployeeDataService } from '../services/emp.data.service';
 export class HomeComponent{
 
   public employee: Employee;
+  public data : any;
   private readonly employeeDataService: EmployeeDataService;
+  private readonly authService : AuthService;
 
-  constructor(employeeDataService: EmployeeDataService) { 
+
+  constructor(employeeDataService: EmployeeDataService, authService: AuthService) { 
     this.employeeDataService = employeeDataService;
+    this.authService = authService;
   }
 
   ngOnInit() {
-    //this.employee = this.employee;
     
-    //this.getEmployeeData(this.employee);
+    this.data = this.authService.data;
+    this.getEmployeeData(this.data);
   }
 
-  /* private getEmployeeData(employee: Employee) : void {
+  private getEmployeeData(employee: Employee) : void {
     this.employeeDataService.getEmpByID(employee.employee_id)
       .subscribe(
         (data: Employee) => this.employee = data[0],
         (err: any) => console.log(err),
         () => console.log(this.employee)
       );
-  } */
+  }
 }

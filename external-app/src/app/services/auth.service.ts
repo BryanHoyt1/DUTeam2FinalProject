@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
     uri : string = 'http://localhost:3000/extLogin';
 
+    data : any;
+
     constructor(private http: HttpClient) {
         this.http = http;
     }
