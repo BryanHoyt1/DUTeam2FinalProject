@@ -15,17 +15,15 @@ import { HomeModule } from './home/home.module';
 import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
 import { ConfigComponent } from './config/config.component';
-import { BadgeFormComponent } from './badge-form/badge-form.component';
-import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
+// import { BadgeFormComponent } from './badge-form/badge-form.component';
+// import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
 import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfigComponent,
-    BadgeFormComponent,
-    AffirmativeFormComponent
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

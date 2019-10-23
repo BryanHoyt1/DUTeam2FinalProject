@@ -3,6 +3,12 @@
 
 <app-header></app-header>
 
+<script>
+    function Window() {
+      window.open("http://localhost:8080/badgeform");
+    }
+    </script>
+
 <div class="home" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column">
@@ -52,7 +58,49 @@
                           Complete
                       </ng-form>
                     </div>
-                      <div class="modal-footer">
+
+                    <a href="http://localhost:8080/badgeform"  target="_blank">Badge Form</a>
+                    <!-- Need to add the variable for the associated user -->
+                    <a>Affirmative Form</a>
+                    <a >Other Form</a>
+                    <a>Other Form</a>
+<!-- 
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Badge Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Affirmative Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Other Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Other Form</button>
+                    </div> -->
+
+            <!--BADGE FORM MODAL (EXPERIMENTAL)-->
+          <!-- <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Badge Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+   -->
+                  <!--BADGE FORM MODAL (EXPERIMENTAL)-->
+                  <!-- <div class="modal-body">
+                    <app-badge-form></app-badge-form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            
+                <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-info" (click)="sendEmail(employee)">E-mail</button>
                         <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
@@ -177,6 +225,6 @@
             </div>
         
         </div>
-      
+    
     
 </div>

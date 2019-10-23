@@ -18,6 +18,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
 
   ],
-  exports: [BadgeFormModule]
+  exports: [BadgeFormComponent]
 })
 export class BadgeFormModule { }
