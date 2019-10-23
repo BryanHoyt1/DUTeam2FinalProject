@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
 import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { IdentityService } from './services/identity.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [IdentityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

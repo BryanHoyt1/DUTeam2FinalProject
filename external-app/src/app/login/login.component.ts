@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { Credentials } from '../models/credentials';
 import { Employee } from '../models/employee';
 import { AuthService } from '../services/auth.service';
-import { EmployeeDataService } from '../services/emp.data.service';
+import { IdentityService } from '../services/identity.service';
+//import { EmployeeDataService } from '../services/emp.data.service';
 
 
 
@@ -17,12 +18,14 @@ export class LoginComponent implements OnInit {
 
   private readonly authService: AuthService;
   private readonly router: Router;
+  private readonly identityService : IdentityService;
   public credentials : Credentials;
   public employee : Employee;
 
-  constructor(authService: AuthService, router: Router) {
+  constructor(authService: AuthService, router: Router, identityService: IdentityService) {
     this.authService = authService;
     this.router = router;
+    this.identityService = identityService;
    }
 
   ngOnInit() {
@@ -34,23 +37,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data: Employee) => {this.employee = data;
       if(this.employee) {
-        this.authService.empData = this.employee;
+        this.identityService.empId = this.employee.employee_id;
         this.router.navigate(["home"]);
-        //this.getEmployeeData(this.employee);
       }},
       (err: any) => console.log(err),
       () => console.log(this.employee)
     );
   }
-
-  /* private getEmployeeData(employee: Employee) : void {
-    this.employeeDataService.getEmpByID(employee.employee_id)
-      .subscribe(
-        (data: Employee) => this.employee = data[0],
-        (err: any) => console.log(err),
-        () => console.log(this.employee)
-      );
-  } */
-
-
 }

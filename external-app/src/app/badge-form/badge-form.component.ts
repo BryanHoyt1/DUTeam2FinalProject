@@ -11,15 +11,15 @@ export class BadgeFormComponent implements OnInit {
 
   private readonly authService : AuthService;
   
-  public empData : any;
+  //public empData : any;
 
   constructor(authService : AuthService) {
     this.authService = authService;
    }
 
   ngOnInit() {
-    this.empData = this.authService.empData;
-    console.log(this.empData);
+    /* this.empData = this.authService.empData;
+    console.log(this.empData); */
   }
 
 }

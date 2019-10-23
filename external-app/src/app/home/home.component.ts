@@ -3,6 +3,8 @@ import { Employee } from '../models/employee';
 import { Observable } from 'rxjs';
 import { EmployeeDataService } from '../services/emp.data.service';
 import { AuthService } from '../services/auth.service';
+import { IdentityService } from '../services/identity.service';
+
 
 
 @Component({
@@ -12,30 +14,19 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent{
 
+  currentId : number;
   public employee: Employee;
-  public empData : any;
-  private readonly employeeDataService: EmployeeDataService;
-  private readonly authService : AuthService;
+  //private readonly employeeDataService: EmployeeDataService;
+  private readonly identityService : IdentityService;
 
-  constructor(employeeDataService: EmployeeDataService, authService: AuthService) { 
-    this.employeeDataService = employeeDataService;
-    this.authService = authService;
+  constructor(employeeDataService: EmployeeDataService, identityService: IdentityService) { 
+    //this.employeeDataService = employeeDataService;
+    this.identityService = identityService;
   }
 
   ngOnInit() {
-    this.empData = this.authService.empData;
-    this.getEmployeeData(this.empData);
-  }
+    this.identityService.currentId.subscribe(id => { this.currentId = id;});
 
-  private getEmployeeData(employee: Employee) : void {
-    this.employeeDataService.getEmpByID(employee.employee_id)
-      .subscribe(
-        (data: Employee) => {this.employee = data[0];
-          this.authService.empData = this.employee;},
-        (err: any) => console.log(err),
-        () => console.log(this.employee)
-      );
+    console.log(this.currentId);
   }
-
-  
 }
