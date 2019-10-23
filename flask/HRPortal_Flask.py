@@ -109,6 +109,35 @@ def newhiretable():
 
 
 
+@app.route('/badgeinfo/<id>', methods = ["GET"])
+def badge_info(id):
+    connection = connectPG()
+    cursor = connection.cursor()
+
+    query = f"SELECT employee.employee_id, concat(firstname,' ',lastname) \"full_name\", veh_make, veh_model, veh_color, plate_num \
+            FROM employee JOIN forms ON employee.employee_id = forms.employee_id JOIN access_card_form ON forms.access_form_id = access_card_form.access_form_id \
+            WHERE employee.employee_id = {id};"
+
+    cursor.execute(query)
+    records = cursor.fetchall()
+    colnames = [desc[0] for desc in cursor.description]
+    
+    results = []
+    for row in records:
+        results.append(dict(zip(colnames, row)))
+
+    if(connection):
+        cursor.close()
+        connection.close()
+
+    try:
+        return jsonify(results)
+    except:
+        return jsonify(0)
+
+
+
+
 @app.route('/details/<id>', methods = ["GET"])
 def details(id):
     connection = connectPG()
@@ -254,6 +283,7 @@ def mailer():
 
     firstname = (request.json['firstname'])
     recruiter = (request.json['recruiter'])
+    email = (request.json['personal_email'])
     recruiter_info = DBS_recruiter(recruiter)
 
 

@@ -16,8 +16,8 @@ import { AddNewModule } from './add-new/add-new.module';
 import { LoginModule } from './login/login.module';
 import { ConfigComponent } from './config/config.component';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
+import { MatTableModule } from '@angular/material';
 import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.co
     AppRoutingModule,
     LoginModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   providers: [AuthService, EmployeeDataService],
   bootstrap: [AppComponent]
