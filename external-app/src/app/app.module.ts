@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { BadgeFormComponent } from './badge-form/badge-form.component';
 import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.co
     LoginModule,
     HeaderModule,
     HomeModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
