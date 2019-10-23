@@ -15,8 +15,12 @@ const createNewHire = (newHire) => {
     return axios.post(`${url}/adduser`, newHire);
 }
 
-const updateNewHire = (id, newHire) => {
+/* const updateNewHire = (id, newHire) => {
     return axios.put(`${url}/${id}`, newHire);
+} */
+
+const updateNewHire = (newHire) => {
+    return axios.post(`${url}/update`, newHire);
 }
 
 const patchNewHire = (id, newHire) => {

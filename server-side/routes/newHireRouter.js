@@ -45,6 +45,7 @@ newHireRouter.post('/', (req, res) => {
     newEmp.recruiter = req.body.recruiter;
     newEmp.startdate = req.body.startdate;
     newEmp.los_title = req.body.los_title;
+    newEmp.employee_num = "";
   
     newHireController
       .createNewHire(newEmp)
@@ -55,22 +56,23 @@ newHireRouter.post('/', (req, res) => {
       .catch(error => console.log(error));
 });
 
-newHireRouter.put('/:id', (req, res) => {
+newHireRouter.put('/', (req, res) => {
     let empUpdate = new NewHire();
     
+    empUpdate.employee_id = req.body.employee_id;
     empUpdate.lastname = req.body.lastname;
     empUpdate.firstname = req.body.firstname;
-    empUpdate.empNum = req.body.empNum;
+    empUpdate.employee_num = req.body.employee_num;
     empUpdate.personal_email = req.body.personal_email;
     empUpdate.phone = req.body.phone;
     empUpdate.birthdate = req.body.birthdate;
-    empUpdate.status = req.body.status;
-    empUpdate.los_title = los_title;
+    //empUpdate.status = req.body.status;
+    empUpdate.los_title = req.body.los_title;
     empUpdate.recruiter = req.body.recruiter;
     empUpdate.startdate = req.body.startdate;
 
     newHireController
-      .updateNewHire(req.params.id, empUpdate)
+      .updateNewHire(empUpdate)
       .then(response => {
         const data = response.data;
         res.json(data);
