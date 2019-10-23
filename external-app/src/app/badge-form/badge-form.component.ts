@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from  '../services/auth.service';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-badge-form',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeFormComponent implements OnInit {
 
-  constructor() { }
+  private readonly authService : AuthService;
+  
+  public empData : any;
+
+  constructor(authService : AuthService) {
+    this.authService = authService;
+   }
 
   ngOnInit() {
+    this.empData = this.authService.empData;
+    console.log(this.empData);
   }
 
 }

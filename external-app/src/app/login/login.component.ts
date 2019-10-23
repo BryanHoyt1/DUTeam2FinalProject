@@ -17,14 +17,12 @@ export class LoginComponent implements OnInit {
 
   private readonly authService: AuthService;
   private readonly router: Router;
-  private readonly employeeDataService: EmployeeDataService;
   public credentials : Credentials;
   public employee : Employee;
 
-  constructor(authService: AuthService, router: Router, employeeDataService: EmployeeDataService) {
+  constructor(authService: AuthService, router: Router) {
     this.authService = authService;
     this.router = router;
-    this.employeeDataService = employeeDataService;
    }
 
   ngOnInit() {
@@ -36,7 +34,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data: Employee) => {this.employee = data;
       if(this.employee) {
-        this.authService.data = this.employee;
+        this.authService.empData = this.employee;
         this.router.navigate(["home"]);
         //this.getEmployeeData(this.employee);
       }},
