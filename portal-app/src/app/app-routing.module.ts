@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { AddNewComponent } from './add-new/add-new.component';
 import { LoginComponent } from './login/login.component';
+import { BadgeFormComponent } from './badge-form/badge-form.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: "add-new", 
     component: AddNewComponent
+  },
+  {
+    path: "badgeform",
+    component: BadgeFormComponent
   }
 ];
 

@@ -34,39 +34,43 @@
                       <!--Detail Page-->
                       <div class="modal-body">
                         <ng-form #empForm="ngForm" *ngIf="employee">
-                          Employee Number:<br>
-                          <input type="text" name="employee_id" [value]="employee.employee_id"><br>
-                          <p class="employee-list-id"></p>
-                          First name:<br>
+                          <b>Employee Number:</b><br>
+                          <input type="text" name="employee_id" [value]="employee.employee_id"><br><p class="employee-list-id"></p>
+                          <b>First name:</b><br>
                           <input type="text" name="firstname" [(ngModel)]="employee.firstname"><br>
-                          Last name:<br>
+                          <b>Last name:</b><br>
                           <input type="text" name="lastname" [(ngModel)]="employee.lastname"><br>
-                          Email:<br>
+                          <b>Email:</b><br>
                           <input type="email" name="personal_email" [(ngModel)]="employee.personal_email"><br>
-                          Phone:<br>
+                          <b>Phone:</b><br>
                           <input type="tel" name="phone" [(ngModel)]="employee.phone"><br>
-                          LOS / Title:<br>
+                          <b>LOS / Title:</b><br>
                           <input type="text" name="los_title" [(ngModel)]="employee.los_title"><br>
-                          Recruiter:<br>
+                          <b>Recruiter:</b><br>
                           <input type="text" name="recruiter" [(ngModel)]="employee.recruiter"><br>
-                          Start Date:<br>
+                          <b>Start Date:</b><br>
                           <input type="date" name="startdate" [(ngModel)]="employee.startdate"><br>
-                          Date of Birth:<br>
+                          <b>Date of Birth:</b><br>
                           <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
-                          Status:<br>
+                          <br>
+                          <b>Status:</b><br>
                           <input type="checkbox" name="status" [(ngModel)]="employee.status">
-                          Complete
+                          <a href="http://localhost:4200/badgeform"  target="_blank"> Security Badge Form</a><br>
+                          <input type="checkbox" name="status">
+                          Voluntary Affirmative Action Form<br>
+                          <input type="checkbox" name="status">
+                          Offer Letter<br>
+                          <input type="checkbox" name="status">
+                          Consulting Agreement<br>
+                          <input type="checkbox" name="status">
+                          Business Card Form<br>
+                          <input type="checkbox" name="status">
+                          Employment Application<br>
+                          <input type="checkbox" name="status">
+                          Background Investigation Consent Form<br>
                       </ng-form>
                     </div>
 
-                    <a href="http://localhost:8080/badgeform"  target="_blank">Security Badge Form</a>
-                    <!-- Need to add the variable for the associated user -->
-                    <a>Voluntary Affirmative Action Form</a>
-                    <a>Offer Letter</a>
-                    <a>Consulting Agreement</a>
-                    <a>Business Card Form</a>
-                    <a>Employment Application</a>
-                    <a>Background Investigation Consent Form</a>
 <!-- 
                     <div class="new-button btn float-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Badge Form</button>
