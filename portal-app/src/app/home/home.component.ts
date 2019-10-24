@@ -8,6 +8,7 @@ import { Employee } from '../models/employee';
 import { EmployeeDataService } from '../services/emp.data.service';
 import { MailService } from '../services/mail.service';
 import { UserSearchParams } from './models/userSearchParams';
+import { Router } from '@angular/router';
 //import { ngForm } from '@angular/forms';
 
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   // private readonly snackBar: MatSnackBar;
   // private readonly authService: AuthService;
 
+  public router : Router;
   public loggedInUser: User;
   public credentials: Credentials = new Credentials();
   public allEmployees = [];
@@ -44,9 +46,10 @@ export class HomeComponent implements OnInit {
   //   this.authService = authService;
   // }
 
-  constructor(employeeDataService : EmployeeDataService, mailService: MailService) {
+  constructor(employeeDataService : EmployeeDataService, mailService: MailService, router : Router) {
     this.employeeDataService = employeeDataService;
     this.mailService = mailService;
+    this.router = router;
   }
 
    ngOnInit(): void {
@@ -83,7 +86,8 @@ export class HomeComponent implements OnInit {
   public getOneEmployee(employee: Employee) : void {
     this.employeeDataService.getEmpByID(employee.employee_id)
     .subscribe(
-      (data: Employee) => this.employee = data[0],
+      (data: Employee) => {this.employee = data[0];
+      this.employeeDataService.empId = this.employee.employee_id},
       (err: any) => console.log(err),
       //(err: any) => alert(err),
       () => console.log(this.employee)
