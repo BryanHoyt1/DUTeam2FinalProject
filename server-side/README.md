@@ -23,7 +23,7 @@ node index
 
 cd to containing folder (Desktop)
 
-python Flatfile_Flask.py
+python HRPortal_Flask.py
 
 ## base Url for database routes
 
