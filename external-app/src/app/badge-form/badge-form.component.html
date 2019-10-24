@@ -40,33 +40,33 @@
         <br>
       <div class="form-group">
         <label for="firstname">First Name:</label>
-        <input type="text" class="form-control" id="firstname" name="firstname">
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="employee.firstname">
       </div>
       <div class="form-group">
         <label for="lastname">Last Name:</label>
-        <input type="text" class="form-control" id="lastname" name="lastname">
+        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="employee.lastname">
       </div>
       <div class="form-group">
         <label for="pwd">Business E-mail:</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="employee.business_email">
       </div>
       <div class="form-group">
         <label for="vehicleColor">Vehicle Color</label>
-        <input type="text" class="form-control" id="vehicleColor" name="vehicleColor">
+        <input type="text" class="form-control" id="vehicleColor" name="vehicleColor" [(ngModel)]="badge.veh_color">
       </div>
       <div class="form-group">
         <label for="vehicleMake">Make of Vehicle</label>
-        <input type="text" class="form-control" id="vehicleMake" name="vehicleMake">
+        <input type="text" class="form-control" id="vehicleMake" name="vehicleMake" [(ngModel)]="badge.veh_make">
       </div>
       <div class="form-group">
         <label for="vehicleModel">Model of Vehicle</label>
-        <input type="text" class="form-control" id="vehicleModel" name="vehicleModel">
+        <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" [(ngModel)]="badge.veh_model">
       </div>
       <div class="form-group">
         <label for="licensePlate">License Plate</label>
-        <input type="text" class="form-control" id="licensePlate" name="licensePlate">
+        <input type="text" class="form-control" id="licensePlate" name="licensePlate" [(ngModel)]="badge.plate_num">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="addBadge(badge)">Submit</button>
     </form>
     <div class="container">
       <h3>Please X the appropriate access areas the employee will be authorized to use:</h3>

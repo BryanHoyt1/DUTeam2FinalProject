@@ -12,7 +12,7 @@ const getBadgeByID = (id) => {
 
 const createBadge = (newBadge) => {
     //TODO: use template string with url to route to correct data path
-    return axios.post(url, newBadge);
+    return axios.post(`${url}/accessbadge`, newBadge);
 }
 
 const updateBadge = (id, badgeUpdate) => {

@@ -23,11 +23,11 @@ badgeRouter.get('/:id', (req, res) => {
 badgeRouter.post('/', (req, res) => {
     let newBadge = new Badge();
 
-    newBadge.employeeID = req.body.employeeID; //goes to forms table?
-    newBadge.plateNum = req.body.plateNum;
-    newBadge.vehMake = req.body.vehMake;
-    newBadge.vehModel = req.body.vehModel;
-    newBadge.vehColor = req.body.vehColor;
+    newBadge.employee_id = req.body.employee_id;
+    newBadge.plate_num = req.body.plate_num;
+    newBadge.veh_make = req.body.veh_make;
+    newBadge.veh_model = req.body.veh_model;
+    newBadge.veh_color = req.body.veh_color;
 
     badgeController.createBadge(newBadge)
         .then(response => {

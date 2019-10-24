@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from  '../services/auth.service';
+import { BadgeService } from  '../services/badge.service';
+import { Badge } from '../models/badge';
 import { Employee } from '../models/employee';
 
 @Component({
@@ -9,17 +10,34 @@ import { Employee } from '../models/employee';
 })
 export class BadgeFormComponent implements OnInit {
 
-  private readonly authService : AuthService;
+  private readonly badgeService : BadgeService;
+  public badge : Badge;
+  public employee : Employee;
   
   //public empData : any;
 
-  constructor(authService : AuthService) {
-    this.authService = authService;
+  constructor(badgeService : BadgeService) {
+    this.badgeService = badgeService;
    }
 
   ngOnInit() {
-    /* this.empData = this.authService.empData;
-    console.log(this.empData); */
+    this.badge = new Badge();
+    this.employee = new Employee();
+  }
+
+  public addBadge(newBadge: Badge) : void {
+    newBadge.employee_id = 12;
+    /* newBadge.plate_num = "npe879";
+    newBadge.veh_color = "red";
+    newBadge.veh_make = "Ford";
+    newBadge.veh_model = "Escort"; */
+
+    this.badgeService.addBadgeForm(newBadge)
+      .subscribe(
+        (data: Badge) => this.badge = data,
+        (err : any) => console.log(err),
+        () => console.log(this.badge)
+      );
   }
 
 }
