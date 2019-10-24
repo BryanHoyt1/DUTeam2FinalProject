@@ -24,9 +24,9 @@ app.use('/login', loginRouter);
 app.use('/home', newHireRouter);
 app.use('/extHome', extNewHireRouter);
 app.use('/badge', badgeRouter);
-app.use('/mail', mailRouter);
+//app.use('/mail', mailRouter);
 app.use('/extLogin', extLoginRouter);
-//app.use('/mail', bodyParser.json(), mailRouter);
+app.use('/mail', bodyParser.json(), mailRouter);
 
 
 app.listen(port, () => {

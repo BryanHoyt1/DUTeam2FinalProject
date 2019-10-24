@@ -1,7 +1,6 @@
 const express = require('express');
 const newHireRouter = express.Router();
 const NewHire = require('../models/newHire');
-
 const newHireController = require('../controllers/newHireController');
 
 
