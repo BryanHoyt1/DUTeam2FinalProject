@@ -26,7 +26,7 @@ export class BadgeFormComponent implements OnInit {
   }
 
   public addBadge(newBadge: Badge) : void {
-    newBadge.employee_id = 12;
+    newBadge.employee_id = 13;
     /* newBadge.plate_num = "npe879";
     newBadge.veh_color = "red";
     newBadge.veh_make = "Ford";
