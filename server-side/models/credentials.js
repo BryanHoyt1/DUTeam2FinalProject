@@ -1,8 +1,8 @@
 class Credentials {
 
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
+    constructor(personal_email, lastname) {
+        this.personal_email = personal_email;
+        this.lastname = lastname;
     }
 }
 

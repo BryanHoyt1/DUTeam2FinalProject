@@ -5,6 +5,7 @@ const extNewHireRouter = require('./routes/extNewHireRouter');
 const loginRouter = require('./routes/loginRouter');
 const badgeRouter = require('./routes/badgeRouter');
 const mailRouter = require('./routes/mailRouter');
+const extLoginRouter = require('./routes/extLoginRouter');
 const bodyParser = require('body-parser');
 //app.use(express.bodyParser());
 
@@ -24,6 +25,7 @@ app.use('/home', newHireRouter);
 app.use('/extHome', extNewHireRouter);
 app.use('/badge', badgeRouter);
 app.use('/mail', mailRouter);
+app.use('/extLogin', extLoginRouter);
 //app.use('/mail', bodyParser.json(), mailRouter);
 
 
