@@ -65,7 +65,9 @@
                           <br>
                           <b>Status:</b><br>
                           <input type="checkbox" name="status" [(ngModel)]="employee.status">
-                          <a href="http://localhost:4200/badgeform"  target="_blank"> Security Badge Form</a><br>
+                          <a href="http://localhost:4200/badgeform/"> Security Badge Form</a><br>
+                          <!-- <a href=`http://localhost:4200/badgeform/${employee.employee_id}` target="_blank"> Security Badge Form</a><br> -->
+                          <!-- <a [routerLink]="['/badgeform']">Security Badge Form</a> -->
                           <input type="checkbox" name="status">
                           Voluntary Affirmative Action Form<br>
                           <input type="checkbox" name="status">

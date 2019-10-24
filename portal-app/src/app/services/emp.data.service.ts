@@ -12,6 +12,8 @@ import { UserSearchParams } from '../home/models/userSearchParams';
 export class EmployeeDataService {
     uri : string = 'http://localhost:3000/home'
 
+    empId: number;
+
     constructor(private http: HttpClient) {
         this.http = http;
     }
