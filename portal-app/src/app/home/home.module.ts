@@ -9,6 +9,7 @@ import { LoginModule } from '../login/login.module';
 import { HeaderModule } from '../header/header.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BadgeFormModule } from '../badge-form/badge-form.module';
 
 
 
@@ -29,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderModule,
     BrowserAnimationsModule,
     MatSortModule,
+    BadgeFormModule,
     FormsModule
   ],
   exports: [HomeComponent]
