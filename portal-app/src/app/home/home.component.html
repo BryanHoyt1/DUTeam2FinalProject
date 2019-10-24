@@ -4,9 +4,13 @@
 <app-header></app-header>
 
 <script>
-    function Window() {
-      window.open("http://localhost:8080/badgeform");
-    }
+    // function Window() {
+    //   window.open("http://localhost:8080/badgeform");
+    // }
+
+    // function refreshPage(){
+    // window.location.reload();
+    // } 
     </script>
 
 <div class="home" fxLayout="column">
@@ -157,7 +161,7 @@
                         </ng-form>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload()">Close</button>
                         <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Add New</button>
                       </div>
                     </div>
