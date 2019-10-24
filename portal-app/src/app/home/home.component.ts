@@ -133,4 +133,8 @@ export class HomeComponent implements OnInit {
       () => console.log(this.employee)
     );
   }
+  public sendAlert() {
+    alert("Email Has Been Sent")
+  }
 }
+
