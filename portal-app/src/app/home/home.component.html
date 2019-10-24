@@ -147,25 +147,22 @@
                       <!--Add new button-->
                       <div class="modal-body new">
                         <ng-form #newEmpForm="ngForm">
-                            First name:<br>
+                            <b>First name:</b><br>
                             <input type="text" name="firstname" [(ngModel)]="newEmployee.firstname"><br>
-                            Last name:<br>
+                            <b>Last name:</b><br>
                             <input type="text" name="lastname" [(ngModel)]="newEmployee.lastname"><br>
-                            Email:<br>
+                            <b>Email:</b><br>
                             <input type="email" name="email" [(ngModel)]="newEmployee.personal_email"><br>
-                            Phone:<br>
+                            <b>Phone:</b><br>
                             <input type="tel" name="phone" [(ngModel)]="newEmployee.phone"><br>
-                            LOS / Title:<br>
+                            <b>LOS / Title:</b><br>
                             <input type="text" name="los_title" [(ngModel)]="newEmployee.los_title"><br>
-                            Recruiter:<br>
+                            <b>Recruiter:</b><br>
                             <input type="text" name="recruiter" [(ngModel)]="newEmployee.recruiter"><br>
-                            Start Date:<br>
+                            <b>Start Date:</b><br>
                             <input type="date" name="startdate"  [(ngModel)]="newEmployee.startdate"><br>
-                            Date of Birth:<br>
+                            <b>Date of Birth</b>:<br>
                             <input type="date" name="birthdate" [(ngModel)]="newEmployee.birthdate"><br>
-                            Status:<br>
-                            <input type="checkbox" name="status" [(ngModel)]="newEmployee.status">
-                            Complete
                         </ng-form>
                       </div>
                       <div class="modal-footer">
