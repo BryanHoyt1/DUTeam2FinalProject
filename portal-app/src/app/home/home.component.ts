@@ -7,6 +7,7 @@ import { Credentials } from '../shared/credentials';
 import { Employee } from '../models/employee';
 import { EmployeeDataService } from '../services/emp.data.service';
 import { MailService } from '../services/mail.service';
+import { UserSearchParams } from './models/userSearchParams';
 //import { ngForm } from '@angular/forms';
 
 
@@ -29,10 +30,13 @@ export class HomeComponent implements OnInit {
   // Sort 
   public dataSource: MatTableDataSource<Employee>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  public employees$: Observable<Employee[]>;
+  public employee$: Observable<Employee[]>;
 
  private readonly employeeDataService: EmployeeDataService;
   private readonly mailService: MailService;
+  public searchBy: string;
+  public sortAsc: boolean;
+  public searchFor: string;
   // private loginSubscription: Subscription;
 
   // constructor(snackBar: MatSnackBar, authService: AuthService) {
@@ -48,6 +52,8 @@ export class HomeComponent implements OnInit {
    ngOnInit(): void {
      this.employee = new Employee();
      this.newEmployee = new Employee();
+     this.searchBy = "id";
+     this.sortAsc = true; 
      this.getEmployees();
    }
 
@@ -62,10 +68,17 @@ export class HomeComponent implements OnInit {
       () => console.log(this.allEmployees)
     );
    }
-
-  // ngOnDestroy(): void {
-  //   this.loginSubscription && this.loginSubscription.unsubscribe();
-  // }
+   public search(): void {
+    const userSearchParams: UserSearchParams = new UserSearchParams();
+    userSearchParams.filterProp = this.searchBy;
+    userSearchParams.filterText = this.searchFor;
+    userSearchParams.sortAsc = this.sortAsc;
+  
+    this.getUsers(userSearchParams);
+   }
+   private getUsers(searchParams?: UserSearchParams): void {
+    this.employee$ = this.employeeDataService.getUsers(searchParams);
+  }
 
   public getOneEmployee(employee: Employee) : void {
     this.employeeDataService.getEmpByID(employee.employee_id)
@@ -120,4 +133,8 @@ export class HomeComponent implements OnInit {
       () => console.log(this.employee)
     );
   }
+  public sendAlert() {
+    alert("Email Has Been Sent")
+  }
 }
+

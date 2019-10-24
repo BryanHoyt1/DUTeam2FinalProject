@@ -108,6 +108,32 @@ def newhiretable():
         return jsonify(0)
 
 
+@app.route('/formcount/<id>', methods = ["GET"])
+def form_count(id):
+    connection = connectPG()
+    cursor = connection.cursor()
+
+    query = f"SELECT COUNT(access_form_id) FROM employee JOIN forms on employee.employee_id = forms.employee_id \
+            WHERE employee.employee_id = {id};"
+
+    cursor.execute(query)
+    records = cursor.fetchall()
+    colnames = [desc[0] for desc in cursor.description]
+    
+    results = []
+    for row in records:
+        results.append(dict(zip(colnames, row)))
+
+    if(connection):
+        cursor.close()
+        connection.close()
+
+    try:
+        return jsonify(results)
+    except:
+        return jsonify(0)
+
+
 
 @app.route('/badgeinfo/<id>', methods = ["GET"])
 def badge_info(id):

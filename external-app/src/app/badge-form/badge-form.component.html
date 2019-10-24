@@ -66,75 +66,11 @@
         <label for="licensePlate">License Plate</label>
         <input type="text" class="form-control" id="licensePlate" name="licensePlate" [(ngModel)]="badge.plate_num">
       </div>
-      <button type="submit" class="btn btn-primary" (click)="addBadge(badge)">Submit</button>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" (click)="addBadge(badge)">Submit</button><button type="print" class="btn btn-secondary" onclick="window.print();return false;"> Print </button>
+      </div>
     </form>
-    <div class="container">
-      <h3>Please X the appropriate access areas the employee will be authorized to use:</h3>
-      <h4>Attach fitness waiver forms for fitness center usage</h4>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td>Elevators After Hours (24/7 Access)</td>
-            <td>
-              <div class="checkbox active">
-                <label><input type="checkbox" checked="checked" value="">Yes</label>
-              </div>
-            </td>
-            <td>
-              <div class="checkbox">
-                <label><input type="checkbox"  value="">No</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Building Entrance 24/7 Access</td>
-            <td>
-              <div class="checkbox">
-                <label><input type="checkbox" checked="checked" value="">Yes</label>
-              </div>
-            </td>
-            <td>
-              <div class="checkbox">
-                <label><input type="checkbox" value="">No</label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              HVAC Access
-              Charged at hourly rate (after hours use only)
-            </td>
-            <td>
-              <div class="checkbox">
-                <label><input type="checkbox" value="">Yes</label>
-              </div>
-            </td>
-            <td>
-              <div class="checkbox">
-                <label><input type="checkbox" checked="checked" value="">No</label>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="form-group">
-          <label for="authorized">Authorized by:</label>
-          <input type="text" class="form-control" id="authorized" name="authorized">
-        </div>
-        <div class="form-group">
-          <label for="date">Date:</label>
-          <input type="date" class="form-control" id="date" name="date">
-        </div>
-        <div class="form-group">
-            <label for="badgeNumber">Assigned Card Number:</label>
-            <input type="number" class="form-control" id="badgeNumber" name="badgeNumber">
-            </div>
-    </div>
-   <h5>In case of emergency the building doors will lock and access cards will be required for building access. Access Cards will NOT be processed without all requested information.</h5>
-   <button type="print" class="btn btn-primary btn-block">Print</button>
-  </div>
-</body>
-</html>
+   
 <br>
 <br>
 <br>

@@ -3,10 +3,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+
 <div class="wrapper fadeInDown" [hidden]="loggedInUser">
   <div id="formContent">
     <!-- Tabs Titles -->
-    <h1 style="padding:20px">Np3 Login</h1>
+    <h1 style="padding:20px">Np3 Internal Login</h1>
 
     <form #userLoginForm="ngForm" (ngSubmit)="login()">
       <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="credentials.username" required placeholder="login">

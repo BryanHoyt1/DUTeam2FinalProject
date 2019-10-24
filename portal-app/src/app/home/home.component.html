@@ -3,6 +3,12 @@
 
 <app-header></app-header>
 
+<script>
+    function Window() {
+      window.open("http://localhost:8080/badgeform");
+    }
+    </script>
+
 <div class="home" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex fxLayout="column">
@@ -52,14 +58,64 @@
                           Complete
                       </ng-form>
                     </div>
-                      <div class="modal-footer">
+
+                    <a href="http://localhost:8080/badgeform"  target="_blank">Security Badge Form</a>
+                    <!-- Need to add the variable for the associated user -->
+                    <a>Voluntary Affirmative Action Form</a>
+                    <a>Offer Letter</a>
+                    <a>Consulting Agreement</a>
+                    <a>Business Card Form</a>
+                    <a>Employment Application</a>
+                    <a>Background Investigation Consent Form</a>
+<!-- 
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Badge Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Affirmative Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Other Form</button>
+                    </div>
+                    <div class="new-button btn float-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form">Other Form</button>
+                    </div> -->
+
+            <!--BADGE FORM MODAL (EXPERIMENTAL)-->
+          <!-- <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Badge Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+   -->
+                  <!--BADGE FORM MODAL (EXPERIMENTAL)-->
+                  <!-- <div class="modal-body">
+                    <app-badge-form></app-badge-form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+                <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info" (click)="sendEmail(employee)">E-mail</button>
+                        <button type="button" class="btn btn-info" (click)="sendAlert()">E-mail</button>
                         <button type="button" class="btn btn-primary" (click)="updateEmp(employee)">Save changes</button>
                       </div>
                     </div>
                   </div>
                 </div>
+
+            <!-- <script> function sendAlert() {
+              alert("Email Has Been Sent")
+            }
+            </script>
+             -->
 
                 <!-- Modal -->
                 <div class="modal fade" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -104,7 +160,13 @@
                   </div>
                 </div>
 
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                  <!-- <mat-form-field fxFlex class="user-list-search">
+                    <input matInput [(ngModel)]="searchFor" (keyup)="search()" placeholder="Search by Name">
+                  </mat-form-field>
+ -->
+              <!-- Bootstrap Search form -->
+              <input class="form-control" type="text" placeholder="Search by Name" aria-label="Search" [(ngModel)]="employee.firstname" name="first" (keyup)="search()">
+                
               <div class="new-button btn float-right">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">+New</button>
             </div>
@@ -177,6 +239,6 @@
             </div>
         
         </div>
-      
+    
     
 </div>
