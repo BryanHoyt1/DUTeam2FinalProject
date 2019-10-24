@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BadgeService } from  '../services/badge.service';
 import { Badge } from '../models/badge';
 import { Employee } from '../models/employee';
+import { IdentityService } from '../services/identity.service';
 
 @Component({
   selector: 'app-badge-form',
@@ -11,26 +12,28 @@ import { Employee } from '../models/employee';
 export class BadgeFormComponent implements OnInit {
 
   private readonly badgeService : BadgeService;
+  private readonly identityService : IdentityService;
   public badge : Badge;
   public employee : Employee;
+  currentId : any;
   
   //public empData : any;
 
-  constructor(badgeService : BadgeService) {
+  constructor(badgeService : BadgeService, identityService: IdentityService) {
     this.badgeService = badgeService;
+    this.identityService = identityService;
    }
 
   ngOnInit() {
+    
     this.badge = new Badge();
     this.employee = new Employee();
+    this.currentId = this.identityService.getId();
+    console.log(this.currentId);
   }
 
   public addBadge(newBadge: Badge) : void {
-    newBadge.employee_id = 13;
-    /* newBadge.plate_num = "npe879";
-    newBadge.veh_color = "red";
-    newBadge.veh_make = "Ford";
-    newBadge.veh_model = "Escort"; */
+    //newBadge.employee_id = 13;
 
     this.badgeService.addBadgeForm(newBadge)
       .subscribe(

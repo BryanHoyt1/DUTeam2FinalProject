@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data: Employee) => {this.employee = data;
       if(this.employee) {
-        this.identityService.empId = this.employee.employee_id;
+        this.identityService.setId('empId', this.employee.employee_id);
         this.router.navigate(["home"]);
       }},
       (err: any) => console.log(err),

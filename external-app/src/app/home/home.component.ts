@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
-import { Employee } from '../models/employee';
-import { Observable } from 'rxjs';
-import { EmployeeDataService } from '../services/emp.data.service';
-import { AuthService } from '../services/auth.service';
+//import { Employee } from '../models/employee';
+//import { Observable } from 'rxjs';
+//import { EmployeeDataService } from '../services/emp.data.service';
+//import { AuthService } from '../services/auth.service';
 import { IdentityService } from '../services/identity.service';
 
 
@@ -14,19 +14,19 @@ import { IdentityService } from '../services/identity.service';
 })
 export class HomeComponent{
 
-  currentId : number;
-  public employee: Employee;
+  currentId : any;
+  //public employee: Employee;
   //private readonly employeeDataService: EmployeeDataService;
   private readonly identityService : IdentityService;
 
-  constructor(employeeDataService: EmployeeDataService, identityService: IdentityService) { 
+  constructor(identityService: IdentityService) { 
     //this.employeeDataService = employeeDataService;
     this.identityService = identityService;
   }
 
   ngOnInit() {
-    this.identityService.currentId.subscribe(id => { this.currentId = id;});
-
+    this.currentId = this.identityService.getId();
     console.log(this.currentId);
+    this.identityService.setId('empId', this.currentId);
   }
 }

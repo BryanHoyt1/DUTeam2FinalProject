@@ -5,22 +5,15 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class IdentityService {
 
+    private currentId = {};
 
-    empId: number;
-    currentId: BehaviorSubject<number>;
-    //public currentId : number;
-    //private currentId = new BehaviorSubject(this.empID);
-    
-    //private identity = new Subject(this.empID);
-    //currentId = this.identity.asObservable();
-
-    constructor() {
-        this.currentId = new BehaviorSubject(this.empId);
+    setId(option, value) {
+        this.currentId[option] = value;
     }
 
-    /* getId() : number {
+    getId() {
         return this.currentId;
-    }  */
+    }
 }
 
 //https://www.intersysconsulting.com/blog/angular-components/
