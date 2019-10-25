@@ -7,10 +7,6 @@ import { AuthService } from '../services/auth.service';
 
 //import { EmployeeDataService } from '../services/emp.data.service';
 
-
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +18,7 @@ export class LoginComponent implements OnInit {
   private readonly router: Router;
   private loginSubscription: Subscription;
 
-  public loggedInEmp$ = new Observable<Employee>();
+  public loggedInEmp$ = new Observable<Employee>;
   public credentials : Credentials = new Credentials();
   
   constructor(authService: AuthService, router: Router) {
