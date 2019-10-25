@@ -12,14 +12,14 @@ import { Employee } from '../models/employee';
 export class BadgeFormComponent implements OnInit {
 
   private readonly badgeService : BadgeService;
-  private readonly employeeDataService : EmployeeDataService;
+  //private readonly employeeDataService : EmployeeDataService;
   public badge : Badge;
   public employee : Employee;
-  public employee_id : number = 12;
+  public employee_id : number = 14;
 
   constructor(badgeService: BadgeService, employeeDataService : EmployeeDataService) {
     this.badgeService = badgeService;
-    this.employeeDataService = employeeDataService;
+    //this.employeeDataService = employeeDataService;
    }
 
   ngOnInit() {

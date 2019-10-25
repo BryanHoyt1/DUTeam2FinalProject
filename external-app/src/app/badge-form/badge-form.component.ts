@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BadgeService } from  '../services/badge.service';
 import { Badge } from '../models/badge';
 import { Employee } from '../models/employee';
-import { IdentityService } from '../services/identity.service';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-badge-form',
@@ -12,28 +13,30 @@ import { IdentityService } from '../services/identity.service';
 export class BadgeFormComponent implements OnInit {
 
   private readonly badgeService : BadgeService;
-  private readonly identityService : IdentityService;
+  private readonly authService : AuthService;
+  public employee$ : Observable<Employee>;
   public badge : Badge;
   public employee : Employee;
-  currentId : any;
   
   //public empData : any;
 
-  constructor(badgeService : BadgeService, identityService: IdentityService) {
+  constructor(badgeService : BadgeService, authService : AuthService) {
     this.badgeService = badgeService;
-    this.identityService = identityService;
+    this.authService = authService;
    }
 
   ngOnInit() {
     
     this.badge = new Badge();
     this.employee = new Employee();
-    this.currentId = this.identityService.getId();
-    console.log(this.currentId);
+    this.employee$ = this.authService.getEmp();
+    console.log(this.employee$);
   }
 
   public addBadge(newBadge: Badge) : void {
-    newBadge.employee_id = 14;
+
+    //TODO: This is the employee_id that makes the badgeform post
+    //newBadge.employee_id = 14;
 
     this.badgeService.addBadgeForm(newBadge)
       .subscribe(

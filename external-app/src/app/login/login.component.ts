@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Credentials } from '../models/credentials';
 import { Employee } from '../models/employee';
 import { AuthService } from '../services/auth.service';
-import { IdentityService } from '../services/identity.service';
+
 //import { EmployeeDataService } from '../services/emp.data.service';
+
+
 
 
 
@@ -18,30 +20,30 @@ export class LoginComponent implements OnInit {
 
   private readonly authService: AuthService;
   private readonly router: Router;
-  private readonly identityService : IdentityService;
-  public credentials : Credentials;
-  public employee : Employee;
+  private loginSubscription: Subscription;
 
-  constructor(authService: AuthService, router: Router, identityService: IdentityService) {
+  public loggedInEmp$ = new Observable<Employee>();
+  public credentials : Credentials = new Credentials();
+  
+  constructor(authService: AuthService, router: Router) {
     this.authService = authService;
     this.router = router;
-    this.identityService = identityService;
    }
 
   ngOnInit() {
-    this.credentials = new Credentials();
+    this.loggedInEmp$ = this.authService.getEmp();
   }
 
-  public login(credentials: Credentials) : void {
-    this.authService.authEmployee(credentials)
-    .subscribe(
-      (data: Employee) => {this.employee = data;
-      if(this.employee) {
-        this.identityService.setId('empId', this.employee.employee_id);
-        this.router.navigate(["home"]);
-      }},
-      (err: any) => console.log(err),
-      () => console.log(this.employee)
-    );
+  ngOnDestroy() : void {
+    this.loginSubscription && this.loginSubscription.unsubscribe();
+  }
+
+  public login(): void {
+    this.loginSubscription = this.authService.login(this.credentials).subscribe(() => {
+      this.router.navigate(["home"]);
+    }, (error: string) => {
+      console.log(error);
+      alert("Failed to login.  Please make sure your username and password are correct.")
+    });
   }
 }

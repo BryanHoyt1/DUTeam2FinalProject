@@ -9,7 +9,8 @@ import { HomeModule } from './home/home.module';
 //import { BadgeFormComponent } from './badge-form/badge-form.component';
 import { AffirmativeFormComponent } from './affirmative-form/affirmative-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { IdentityService } from './services/identity.service';
+import { AuthService } from './services/auth.service';
+import { LocalStorageService } from './services/local.storage.service';
 
 //import { LoginComponent } from './login/login.component';
 //import { HomeComponent } from './home/home.component';
@@ -30,7 +31,7 @@ import { IdentityService } from './services/identity.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [IdentityService],
+  providers: [AuthService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,10 @@
 import { Component} from '@angular/core';
 //import { Employee } from '../models/employee';
-//import { Observable } from 'rxjs';
-//import { EmployeeDataService } from '../services/emp.data.service';
-//import { AuthService } from '../services/auth.service';
-import { IdentityService } from '../services/identity.service';
-
-
+import { Employee } from '../models/employee';
+import { Observable, Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+//do we need router on this component?
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +13,17 @@ import { IdentityService } from '../services/identity.service';
 })
 export class HomeComponent{
 
-  currentId : any;
-  //public employee: Employee;
-  //private readonly employeeDataService: EmployeeDataService;
-  private readonly identityService : IdentityService;
+  public loggedInEmp$ : Observable<Employee>;
+  private readonly authService : AuthService;
 
-  constructor(identityService: IdentityService) { 
-    //this.employeeDataService = employeeDataService;
-    this.identityService = identityService;
+  public employee$: Observable<Employee>
+
+  constructor(authService : AuthService) { 
+    this.authService = authService;
   }
 
   ngOnInit() {
-    this.currentId = this.identityService.getId();
-    console.log(this.currentId);
-    this.identityService.setId('empId', this.currentId);
+    this.employee$ = this.authService.getEmp();
+    console.log(this.employee$);
   }
 }
