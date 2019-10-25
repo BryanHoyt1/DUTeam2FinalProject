@@ -304,7 +304,7 @@ def DBS_recruiter (rec_name):
 
 
 
-@app.route("/mail", methods = ['GET'])
+@app.route("/mail", methods = ['POST'])
 def mailer():
 
     firstname = (request.json['firstname'])
