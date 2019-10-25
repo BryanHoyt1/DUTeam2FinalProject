@@ -15,7 +15,7 @@ export class BadgeFormComponent implements OnInit {
   private readonly employeeDataService : EmployeeDataService;
   public badge : Badge;
   public employee : Employee;
-  public employee_id : number = 14;
+  public employee_id : number = 12;
 
   constructor(badgeService: BadgeService, employeeDataService : EmployeeDataService) {
     this.badgeService = badgeService;

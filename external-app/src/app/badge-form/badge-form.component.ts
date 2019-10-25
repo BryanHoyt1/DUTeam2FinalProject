@@ -33,7 +33,7 @@ export class BadgeFormComponent implements OnInit {
   }
 
   public addBadge(newBadge: Badge) : void {
-    //newBadge.employee_id = 13;
+    newBadge.employee_id = 14;
 
     this.badgeService.addBadgeForm(newBadge)
       .subscribe(

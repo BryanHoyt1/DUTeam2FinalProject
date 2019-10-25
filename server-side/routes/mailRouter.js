@@ -1,12 +1,17 @@
 const express = require('express');
 const mailRouter = express.Router();
 const mailController = require('../controllers/mailController');
+const NewHire = require('../models/newHire');
 
-mailRouter.get('/:id', (req, res) => {
+mailRouter.get('/', (req, res) => {
 
-    const id = req.params.id;
+     let emp = new NewHire();
+    emp.firstname = req.body.firstname;
+    emp.recruiter = req.body.recruiter;
+    emp.personal_email = req.body.personal_email;
+
     mailController
-        .sendMailToNewEmp(id)
+        .sendMailToNewEmp(emp)
         .then(response => {
             const data = response.data;
             res.json(data);
