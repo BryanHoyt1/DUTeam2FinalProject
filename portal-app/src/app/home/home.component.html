@@ -4,19 +4,14 @@
 <app-header></app-header>
 
 <script>
-    // function Window() {
-    //   window.open("http://localhost:8080/badgeform");
-    // }
+ function Window() {
+  window.open("http://localhost:8080/badgeform");
+}
 
-    // function refreshPage(){
-    // window.location.reload();
-    // } 
+function refreshPage(){
+  window.location.reload();
+} 
 
-    function clearForm() {
-      if(document.getElementById) {
-        document.modal-body.new.reset();
-      }
-    }
     </script>
 
 <div class="home" fxLayout="column">
@@ -168,7 +163,6 @@
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload()">Close</button>
                         <button type="button" class="btn btn-primary" (click)="addEmp(newEmployee)">Save</button>
-                        <button type="button" class="btn btn-primary" onClick="clearForm()">Add Another</button>
                       </div>
                     </div>
                   </div>
@@ -187,7 +181,7 @@
             </form>
 
             <div id="employeeTable">
-              <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8" matSortActive="employee_id" matSortDirection="asc">
+              <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8" matSortActive="employee_id" matSortDirection="desc">
                 
                 <ng-container matColumnDef="employee_id">
                   <th mat-header-cell class="employee-list-id" *matHeaderCellDef mat-sort-header>Emp ID</th>
