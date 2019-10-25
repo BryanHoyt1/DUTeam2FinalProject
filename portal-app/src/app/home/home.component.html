@@ -59,21 +59,14 @@ function refreshPage(){
                           <input type="date" name="birthdate" [(ngModel)]="employee.birthdate"><br>
                           <br>
                           <b>Status:</b><br>
-                          <input type="checkbox" name="status" [(ngModel)]="employee.status">
-                          <a href="http://localhost:4200/badgeform/" target="_blank"> Security Badge Form</a><br>
+                          <a href="http://localhost:4200/badgeform/" target="_blank" [(ngModel)]="employee.status"> Security Badge Form</a><br>
                           <!-- <a href=`http://localhost:4200/badgeform/${employee.employee_id}` target="_blank"> Security Badge Form</a><br> -->
                           <!-- <a [routerLink]="['/badgeform']">Security Badge Form</a> -->
-                          <input type="checkbox" name="status">
                           Voluntary Affirmative Action Form<br>
-                          <input type="checkbox" name="status">
                           Offer Letter<br>
-                          <input type="checkbox" name="status">
                           Consulting Agreement<br>
-                          <input type="checkbox" name="status">
                           Business Card Form<br>
-                          <input type="checkbox" name="status">
                           Employment Application<br>
-                          <input type="checkbox" name="status">
                           Background Investigation Consent Form<br>
                       </ng-form>
                     </div>
