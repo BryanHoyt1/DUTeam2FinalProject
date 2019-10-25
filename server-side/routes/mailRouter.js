@@ -3,7 +3,7 @@ const mailRouter = express.Router();
 const mailController = require('../controllers/mailController');
 const Mail = require('../models/mail');
 
-mailRouter.get('/', (req, res) => {
+mailRouter.post('/', (req, res) => {
 
     let mail = new Mail();
 

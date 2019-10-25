@@ -129,12 +129,14 @@ export class HomeComponent implements OnInit {
   }
 
   public sendEmail(employee: Employee): void {
-    this.mailService.sendEmail(employee.employee_id)
+    this.mailService.sendEmail(employee)
     .subscribe(
       (data: Employee) => this.employee = data,
-      //(err: any) => console.log(err),
-      (err: any) => alert(err),
-      () => console.log(this.employee)
+      (err: any) => console.log(err),
+      //(err: any) => alert(err),
+      () => {
+        alert("Email has been sent");
+        console.log(this.employee)}
     );
   }
   public sendAlert() {
