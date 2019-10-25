@@ -187,7 +187,7 @@
             </form>
 
             <div id="employeeTable">
-              <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+              <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8" matSortActive="employee_id" matSortDirection="asc">
                 
                 <ng-container matColumnDef="employee_id">
                   <th mat-header-cell class="employee-list-id" *matHeaderCellDef mat-sort-header>Emp ID</th>
@@ -235,7 +235,7 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Add New Hire</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-h idden="true">&times;</span>
+                      <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   
