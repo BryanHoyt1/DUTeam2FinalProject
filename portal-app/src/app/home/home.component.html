@@ -205,9 +205,9 @@ function refreshPage(){
                   <td mat-cell class="employee-list-startdate" *matCellDef="let employee"> {{employee.startdate}} </td>
                 </ng-container>
                 <ng-container matColumnDef="status">
-                  <th mat-header-cell class="employee-list-status" *matHeaderCellDef mat-sort-header>Status</th>
+                  <th mat-header-cell class="employee-list-status" *matHeaderCellDef mat-sort-header>Detail Page</th>
                   <td mat-cell class="employee-list-status" *matCellDef="let employee">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee)">INCOMPLETE</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailPage" (click)="getOneEmployee(employee)">DETAILS</button>
                   </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="employeeColumns"></tr>
